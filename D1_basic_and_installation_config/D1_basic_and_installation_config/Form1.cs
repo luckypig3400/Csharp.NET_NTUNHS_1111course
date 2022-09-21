@@ -16,5 +16,10 @@ namespace D1_basic_and_installation_config
         {
             InitializeComponent();
         }
+
+        private void helloWorldButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello World", "Hi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
