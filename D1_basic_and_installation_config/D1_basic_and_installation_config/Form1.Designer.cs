@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.helloWordButton = new System.Windows.Forms.Button();
+            this.practice1Btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // helloWordButton
@@ -42,11 +43,23 @@
             this.helloWordButton.UseVisualStyleBackColor = true;
             this.helloWordButton.Click += new System.EventHandler(this.helloWorldButton_Click);
             // 
+            // practice1Btn
+            // 
+            this.practice1Btn.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.practice1Btn.Location = new System.Drawing.Point(80, 56);
+            this.practice1Btn.Name = "practice1Btn";
+            this.practice1Btn.Size = new System.Drawing.Size(89, 47);
+            this.practice1Btn.TabIndex = 1;
+            this.practice1Btn.Text = "練習1";
+            this.practice1Btn.UseVisualStyleBackColor = true;
+            this.practice1Btn.Click += new System.EventHandler(this.practice1Btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.practice1Btn);
             this.Controls.Add(this.helloWordButton);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -57,6 +70,7 @@
         #endregion
 
         private System.Windows.Forms.Button helloWordButton;
+        private System.Windows.Forms.Button practice1Btn;
     }
 }
 

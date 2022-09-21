@@ -21,5 +21,14 @@ namespace D1_basic_and_installation_config
         {
             MessageBox.Show("Hello World", "Hi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void practice1Btn_Click(object sender, EventArgs e)
+        {
+            int pen = 23;
+            double watch = 200.2;
+            string log = String.Format(
+             "一枝筆賣{0}元，一支錶要價{1}元", pen, watch);
+            MessageBox.Show(log);
+        }
     }
 }
