@@ -33,5 +33,19 @@ namespace D1_basic_and_installation_config
              pen, watch, landPrice);
             MessageBox.Show(log);
         }
+
+        private void practice2Btn_Click(object sender, EventArgs e)
+        {
+            double weight = 76.0;
+            double height = 1.69;
+            double bmi = weight / (height * height);
+            DateTime currentDateAndTime = DateTime.Now;
+
+            string log = String.Format("現在時間是{0}，我的BMI為{1} ",
+                currentDateAndTime.ToString("yyyy-MM-dd HH時mm分ss秒"), bmi);
+
+            MessageBox.Show(log);
+
+        }
     }
 }
