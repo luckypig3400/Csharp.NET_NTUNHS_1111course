@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.p1BtnBMI = new System.Windows.Forms.Button();
+            this.testBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // p1BtnBMI
             // 
-            this.p1BtnBMI.Font = new System.Drawing.Font("新細明體", 12F);
+            this.p1BtnBMI.Font = new System.Drawing.Font("PMingLiU", 12F);
             this.p1BtnBMI.Location = new System.Drawing.Point(59, 34);
             this.p1BtnBMI.Name = "p1BtnBMI";
             this.p1BtnBMI.Size = new System.Drawing.Size(106, 61);
@@ -42,11 +43,22 @@
             this.p1BtnBMI.UseVisualStyleBackColor = true;
             this.p1BtnBMI.Click += new System.EventHandler(this.p1BtnBMI_Click);
             // 
+            // testBtn
+            // 
+            this.testBtn.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.testBtn.Location = new System.Drawing.Point(216, 34);
+            this.testBtn.Name = "testBtn";
+            this.testBtn.Size = new System.Drawing.Size(174, 60);
+            this.testBtn.TabIndex = 1;
+            this.testBtn.Text = "Test for Git Detach";
+            this.testBtn.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.testBtn);
             this.Controls.Add(this.p1BtnBMI);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -57,6 +69,7 @@
         #endregion
 
         private System.Windows.Forms.Button p1BtnBMI;
+        private System.Windows.Forms.Button testBtn;
     }
 }
 
