@@ -30,6 +30,7 @@
         {
             this.p1BtnBMI = new System.Windows.Forms.Button();
             this.testBtn = new System.Windows.Forms.Button();
+            this.p2BtnMonth = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // p1BtnBMI
@@ -53,11 +54,23 @@
             this.testBtn.Text = "Test for Git Detach";
             this.testBtn.UseVisualStyleBackColor = true;
             // 
+            // p2BtnMonth
+            // 
+            this.p2BtnMonth.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.p2BtnMonth.Location = new System.Drawing.Point(59, 136);
+            this.p2BtnMonth.Name = "p2BtnMonth";
+            this.p2BtnMonth.Size = new System.Drawing.Size(331, 61);
+            this.p2BtnMonth.TabIndex = 2;
+            this.p2BtnMonth.Text = "練習二:if else判斷月份 (隨機產生月份)";
+            this.p2BtnMonth.UseVisualStyleBackColor = true;
+            this.p2BtnMonth.Click += new System.EventHandler(this.p2BtnMonth_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.p2BtnMonth);
             this.Controls.Add(this.testBtn);
             this.Controls.Add(this.p1BtnBMI);
             this.Name = "Form1";
@@ -70,6 +83,7 @@
 
         private System.Windows.Forms.Button p1BtnBMI;
         private System.Windows.Forms.Button testBtn;
+        private System.Windows.Forms.Button p2BtnMonth;
     }
 }
 

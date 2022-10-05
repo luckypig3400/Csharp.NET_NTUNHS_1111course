@@ -29,5 +29,36 @@ namespace D2_basicSyntax_and_Git
                 today.ToString("yyyy-MM-dd"), bmi);
             MessageBox.Show(log, "練習1:我的BMI", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void p2BtnMonth_Click(object sender, EventArgs e)
+        {
+            Random randomMonth = new Random();
+            int month = randomMonth.Next(1, 12+1);
+
+            if (month == 1)
+                MessageBox.Show("1月有31天");
+            else if(month == 2)
+                MessageBox.Show("2月有28天");
+            else if(month == 3)
+                MessageBox.Show("3月有31天");
+            else if (month == 4)
+                MessageBox.Show("4月有30天");
+            else if (month == 5)
+                MessageBox.Show("5月有31天");
+            else if (month == 6)
+                MessageBox.Show("6月有30天");
+            else if (month == 7)
+                MessageBox.Show("7月有31天");
+            else if (month == 8)
+                MessageBox.Show("8月有31天");
+            else if (month == 9)
+                MessageBox.Show("9月有30天");
+            else if (month == 10)
+                MessageBox.Show("10月有31天");
+            else if (month == 11)
+                MessageBox.Show("11月有30天");
+            else if (month == 12)
+                MessageBox.Show("12月有31天");
+        }
     }
 }
