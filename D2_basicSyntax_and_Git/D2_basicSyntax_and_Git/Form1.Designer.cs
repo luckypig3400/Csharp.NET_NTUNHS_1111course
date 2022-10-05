@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.p1BtnBMI = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.testBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // p1BtnBMI
@@ -43,24 +43,22 @@
             this.p1BtnBMI.UseVisualStyleBackColor = true;
             this.p1BtnBMI.Click += new System.EventHandler(this.p1BtnBMI_Click);
             // 
-            // webBrowser1
+            // testBtn
             // 
-            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.webBrowser1.Location = new System.Drawing.Point(12, 111);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(776, 327);
-            this.webBrowser1.TabIndex = 1;
-            this.webBrowser1.Url = new System.Uri("https://github.com/", System.UriKind.Absolute);
+            this.testBtn.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.testBtn.Location = new System.Drawing.Point(216, 34);
+            this.testBtn.Name = "testBtn";
+            this.testBtn.Size = new System.Drawing.Size(174, 60);
+            this.testBtn.TabIndex = 1;
+            this.testBtn.Text = "Test for Git Detach";
+            this.testBtn.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.testBtn);
             this.Controls.Add(this.p1BtnBMI);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -71,7 +69,7 @@
         #endregion
 
         private System.Windows.Forms.Button p1BtnBMI;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Button testBtn;
     }
 }
 
