@@ -60,5 +60,15 @@ namespace D2_basicSyntax_and_Git
             else if (month == 12)
                 MessageBox.Show("12月有31天");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello World", "Greeting", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Go Go Go~", "Come on!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
     }
 }
