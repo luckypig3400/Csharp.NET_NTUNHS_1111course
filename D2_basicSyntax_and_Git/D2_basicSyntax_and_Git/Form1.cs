@@ -68,7 +68,7 @@ namespace D2_basicSyntax_and_Git
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Go Go Go~", "Come on!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Go Go Go~", "Come on!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
