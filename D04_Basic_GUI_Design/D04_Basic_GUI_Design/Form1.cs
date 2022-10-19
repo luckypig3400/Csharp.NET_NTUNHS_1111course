@@ -34,8 +34,10 @@ namespace D04_Basic_GUI_Design
                 radioBtnLog = "出貨";
             }
 
-            richTextBox1.Text = String.Format("總金額:{0} {1}",
-                price * num, radioBtnLog
+            string comboBoxLog = comboBox1.SelectedItem.ToString();
+
+            richTextBox1.Text = String.Format("總金額:{0} {1} {2}",
+                price * num, radioBtnLog, comboBoxLog
             );
         }
     }
