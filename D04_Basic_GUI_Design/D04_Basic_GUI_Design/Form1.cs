@@ -24,7 +24,19 @@ namespace D04_Basic_GUI_Design
             double price = Convert.ToDouble(i_input_price);
             double num = Convert.ToDouble(i_input_num);
 
-            richTextBox1.Text = (price * num).ToString();
+            string radioBtnLog = "";
+            if (radioButton1.Checked == true)
+            {
+                radioBtnLog = "進貨";
+            }
+            else
+            {
+                radioBtnLog = "出貨";
+            }
+
+            richTextBox1.Text = String.Format("總金額:{0} {1}",
+                price * num, radioBtnLog
+            );
         }
     }
 }
