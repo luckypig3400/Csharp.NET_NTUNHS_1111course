@@ -40,5 +40,10 @@ namespace D04_Basic_GUI_Design
                 price * num, radioBtnLog, comboBoxLog
             );
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This is about!", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
