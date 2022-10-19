@@ -35,8 +35,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.priceTextBox = new System.Windows.Forms.TextBox();
+            this.numTextBox = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
@@ -49,6 +49,7 @@
             this.inputDataBtn.TabIndex = 0;
             this.inputDataBtn.Text = "輸入資料";
             this.inputDataBtn.UseVisualStyleBackColor = true;
+            this.inputDataBtn.Click += new System.EventHandler(this.inputDataBtn_Click);
             // 
             // outputDataBtn
             // 
@@ -110,21 +111,21 @@
             this.idLabel.TabIndex = 6;
             this.idLabel.Text = "--";
             // 
-            // textBox1
+            // priceTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("PMingLiU", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox1.Location = new System.Drawing.Point(153, 153);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 35);
-            this.textBox1.TabIndex = 7;
+            this.priceTextBox.Font = new System.Drawing.Font("PMingLiU", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.priceTextBox.Location = new System.Drawing.Point(153, 153);
+            this.priceTextBox.Name = "priceTextBox";
+            this.priceTextBox.Size = new System.Drawing.Size(100, 35);
+            this.priceTextBox.TabIndex = 7;
             // 
-            // textBox2
+            // numTextBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("PMingLiU", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox2.Location = new System.Drawing.Point(153, 206);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 35);
-            this.textBox2.TabIndex = 8;
+            this.numTextBox.Font = new System.Drawing.Font("PMingLiU", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.numTextBox.Location = new System.Drawing.Point(153, 206);
+            this.numTextBox.Name = "numTextBox";
+            this.numTextBox.Size = new System.Drawing.Size(100, 35);
+            this.numTextBox.TabIndex = 8;
             // 
             // richTextBox1
             // 
@@ -140,8 +141,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.numTextBox);
+            this.Controls.Add(this.priceTextBox);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -165,8 +166,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label idLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox priceTextBox;
+        private System.Windows.Forms.TextBox numTextBox;
         private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
