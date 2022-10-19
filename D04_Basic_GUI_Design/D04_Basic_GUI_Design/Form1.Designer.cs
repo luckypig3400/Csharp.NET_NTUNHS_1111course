@@ -28,13 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.inputDataBtn = new System.Windows.Forms.Button();
+            this.outputDataBtn = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // inputDataBtn
+            // 
+            this.inputDataBtn.Font = new System.Drawing.Font("PMingLiU", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.inputDataBtn.Location = new System.Drawing.Point(25, 588);
+            this.inputDataBtn.Name = "inputDataBtn";
+            this.inputDataBtn.Size = new System.Drawing.Size(147, 54);
+            this.inputDataBtn.TabIndex = 0;
+            this.inputDataBtn.Text = "輸入資料";
+            this.inputDataBtn.UseVisualStyleBackColor = true;
+            // 
+            // outputDataBtn
+            // 
+            this.outputDataBtn.Font = new System.Drawing.Font("PMingLiU", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.outputDataBtn.Location = new System.Drawing.Point(195, 588);
+            this.outputDataBtn.Name = "outputDataBtn";
+            this.outputDataBtn.Size = new System.Drawing.Size(147, 54);
+            this.outputDataBtn.TabIndex = 1;
+            this.outputDataBtn.Text = "輸出資料";
+            this.outputDataBtn.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.outputDataBtn);
+            this.Controls.Add(this.inputDataBtn);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button inputDataBtn;
+        private System.Windows.Forms.Button outputDataBtn;
     }
 }
 
