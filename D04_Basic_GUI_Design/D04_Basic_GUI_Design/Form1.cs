@@ -39,6 +39,11 @@ namespace D04_Basic_GUI_Design
             richTextBox1.Text = String.Format("總金額:{0} {1} {2}",
                 price * num, radioBtnLog, comboBoxLog
             );
+
+            DataGridViewRowCollection rows = dataGridView1.Rows;
+            DateTime currentDateTime = DateTime.Now; //現在時間
+            rows.Add(new Object[] {"", currentDateTime.ToString("yyyy/MM/dd HH:mm:ss")
+                , radioBtnLog, comboBoxLog, price, num, price * num});
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
