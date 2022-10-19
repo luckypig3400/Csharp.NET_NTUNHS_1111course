@@ -50,5 +50,11 @@ namespace D04_Basic_GUI_Design
         {
             MessageBox.Show("This is about!", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void outputDataBtn_Click(object sender, EventArgs e)
+        {
+            DataGridViewRowCollection rows = dataGridView1.Rows;
+            MessageBox.Show("第一筆資料的登記日期:" + rows[0].Cells[1].Value.ToString());
+        }
     }
 }

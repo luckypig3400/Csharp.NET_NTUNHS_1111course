@@ -88,6 +88,7 @@
             this.outputDataBtn.TabIndex = 1;
             this.outputDataBtn.Text = "輸出資料";
             this.outputDataBtn.UseVisualStyleBackColor = true;
+            this.outputDataBtn.Click += new System.EventHandler(this.outputDataBtn_Click);
             // 
             // label1
             // 
