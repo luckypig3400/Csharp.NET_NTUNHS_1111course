@@ -3,3 +3,6 @@
 
 ## 雲端課程資料夾
 + https://drive.google.com/drive/folders/1qWYmWmvTsx9WHTgOWDL39I3Bb9yBVfXd?usp=sharing
+
+## 期中期末專案
++ https://github.com/luckypig3400/HairSalonMS
