@@ -39,7 +39,9 @@ namespace D05_Multiple_Forms_Design
 
         private void pdfReaderBtn_Click(object sender, EventArgs e)
         {
+            pdfReaderForm pdfForm = new pdfReaderForm();
 
+            pdfForm.Show();
         }
     }
 }
