@@ -71,6 +71,7 @@
             this.passwordTextBox.Font = new System.Drawing.Font("PMingLiU", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.passwordTextBox.Location = new System.Drawing.Point(389, 130);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(192, 40);
             this.passwordTextBox.TabIndex = 3;
             // 
