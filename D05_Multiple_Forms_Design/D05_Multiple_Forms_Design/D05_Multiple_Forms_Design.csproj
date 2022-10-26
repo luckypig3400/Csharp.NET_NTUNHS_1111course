@@ -116,6 +116,9 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MdiFormMain.resx">
+      <DependentUpon>MdiFormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MdiFormSub1.resx">
       <DependentUpon>MdiFormSub1.cs</DependentUpon>
     </EmbeddedResource>
