@@ -16,5 +16,10 @@ namespace D05_Multiple_Forms_Design
         {
             InitializeComponent();
         }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

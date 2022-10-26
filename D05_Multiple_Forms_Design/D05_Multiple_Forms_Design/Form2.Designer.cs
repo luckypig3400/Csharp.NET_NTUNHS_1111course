@@ -53,6 +53,7 @@
             this.closeBtn.TabIndex = 1;
             this.closeBtn.Text = "關閉";
             this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // label1
             // 
