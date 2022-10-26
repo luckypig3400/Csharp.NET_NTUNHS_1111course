@@ -19,7 +19,10 @@ namespace D05_Multiple_Forms_Design
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();// 關閉form2
+
+            // 關閉整個Application
+            System.Environment.Exit(0);
         }
 
         private void logintBtn_Click(object sender, EventArgs e)
