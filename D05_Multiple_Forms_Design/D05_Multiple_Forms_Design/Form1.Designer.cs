@@ -33,6 +33,7 @@
             this.pdfReaderBtn = new System.Windows.Forms.Button();
             this.wordReaderBtn = new System.Windows.Forms.Button();
             this.excelReaderBtn = new System.Windows.Forms.Button();
+            this.mdiBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -90,11 +91,23 @@
             this.excelReaderBtn.UseVisualStyleBackColor = true;
             this.excelReaderBtn.Click += new System.EventHandler(this.excelReaderBtn_Click);
             // 
+            // mdiBtn
+            // 
+            this.mdiBtn.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.mdiBtn.Location = new System.Drawing.Point(580, 322);
+            this.mdiBtn.Name = "mdiBtn";
+            this.mdiBtn.Size = new System.Drawing.Size(208, 116);
+            this.mdiBtn.TabIndex = 5;
+            this.mdiBtn.Text = "打開多重文件介面(MDI)";
+            this.mdiBtn.UseVisualStyleBackColor = true;
+            this.mdiBtn.Click += new System.EventHandler(this.mdiBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mdiBtn);
             this.Controls.Add(this.excelReaderBtn);
             this.Controls.Add(this.wordReaderBtn);
             this.Controls.Add(this.pdfReaderBtn);
@@ -114,6 +127,7 @@
         private System.Windows.Forms.Button pdfReaderBtn;
         private System.Windows.Forms.Button wordReaderBtn;
         private System.Windows.Forms.Button excelReaderBtn;
+        private System.Windows.Forms.Button mdiBtn;
     }
 }
 

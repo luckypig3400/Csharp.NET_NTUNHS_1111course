@@ -55,5 +55,11 @@ namespace D05_Multiple_Forms_Design
             ExcelReaderForm excelReaderForm = new ExcelReaderForm();
             excelReaderForm.Show();
         }
+
+        private void mdiBtn_Click(object sender, EventArgs e)
+        {
+            MdiFormMain mdiFormMain = new MdiFormMain();
+            mdiFormMain.Show();
+        }
     }
 }

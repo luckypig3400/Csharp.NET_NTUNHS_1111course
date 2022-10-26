@@ -75,6 +75,24 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="MdiFormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiFormMain.Designer.cs">
+      <DependentUpon>MdiFormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiFormSub1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiFormSub1.Designer.cs">
+      <DependentUpon>MdiFormSub1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiFormSub2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiFormSub2.Designer.cs">
+      <DependentUpon>MdiFormSub2.cs</DependentUpon>
+    </Compile>
     <Compile Include="pdfReaderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +115,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiFormSub1.resx">
+      <DependentUpon>MdiFormSub1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiFormSub2.resx">
+      <DependentUpon>MdiFormSub2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pdfReaderForm.resx">
       <DependentUpon>pdfReaderForm.cs</DependentUpon>
