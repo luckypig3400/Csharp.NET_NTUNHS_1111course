@@ -43,5 +43,11 @@ namespace D05_Multiple_Forms_Design
 
             pdfForm.Show();
         }
+
+        private void wordReaderBtn_Click(object sender, EventArgs e)
+        {
+            WordReaderForm wordReaderForm = new WordReaderForm();
+            wordReaderForm.Show();
+        }
     }
 }

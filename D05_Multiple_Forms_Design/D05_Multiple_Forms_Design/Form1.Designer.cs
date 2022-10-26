@@ -76,6 +76,7 @@
             this.wordReaderBtn.TabIndex = 3;
             this.wordReaderBtn.Text = "打開Word文件閱讀器";
             this.wordReaderBtn.UseVisualStyleBackColor = true;
+            this.wordReaderBtn.Click += new System.EventHandler(this.wordReaderBtn_Click);
             // 
             // Form1
             // 
