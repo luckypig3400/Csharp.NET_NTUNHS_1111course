@@ -15,6 +15,10 @@ namespace D05_Multiple_Forms_Design
         public Form1()
         {
             InitializeComponent();
+
+            // 打開程式後,跳出Form2確認帳號密碼
+            Form2 form2 = new Form2();
+            form2.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
