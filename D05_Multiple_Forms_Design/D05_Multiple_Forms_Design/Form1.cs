@@ -36,5 +36,10 @@ namespace D05_Multiple_Forms_Design
             // 打開Form2會鎖定Form1
             form2.ShowDialog();
         }
+
+        private void pdfReaderBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
