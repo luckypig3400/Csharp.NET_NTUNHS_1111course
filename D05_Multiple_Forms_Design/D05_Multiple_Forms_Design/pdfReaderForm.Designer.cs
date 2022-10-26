@@ -45,6 +45,7 @@
             this.openPDFbtn.TabIndex = 0;
             this.openPDFbtn.Text = "打開PDF";
             this.openPDFbtn.UseVisualStyleBackColor = true;
+            this.openPDFbtn.Click += new System.EventHandler(this.openPDFbtn_Click);
             // 
             // axAcroPDF1
             // 

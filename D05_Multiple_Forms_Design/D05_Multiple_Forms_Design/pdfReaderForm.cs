@@ -16,5 +16,20 @@ namespace D05_Multiple_Forms_Design
         {
             InitializeComponent();
         }
+
+        private void openPDFbtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDlg = new OpenFileDialog();
+
+            // set file filter of dialog
+            fileDlg.Filter = "pdf files (*.pdf) |*.pdf;";
+            fileDlg.ShowDialog();
+
+            if(fileDlg.FileName != null)
+            {
+                // 讀取PDF
+                axAcroPDF1.LoadFile(fileDlg.FileName);
+            }
+        }
     }
 }
