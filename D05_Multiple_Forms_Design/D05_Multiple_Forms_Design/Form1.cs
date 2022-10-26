@@ -16,5 +16,13 @@ namespace D05_Multiple_Forms_Design
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+
+            // 打開Form2而不會鎖定Form1
+            form2.Show();
+        }
     }
 }
