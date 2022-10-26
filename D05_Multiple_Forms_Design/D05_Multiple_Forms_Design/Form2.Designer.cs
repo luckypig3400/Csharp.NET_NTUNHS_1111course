@@ -43,6 +43,7 @@
             this.logintBtn.TabIndex = 0;
             this.logintBtn.Text = "登入系統";
             this.logintBtn.UseVisualStyleBackColor = true;
+            this.logintBtn.Click += new System.EventHandler(this.logintBtn_Click);
             // 
             // closeBtn
             // 

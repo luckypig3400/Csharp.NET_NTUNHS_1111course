@@ -21,5 +21,19 @@ namespace D05_Multiple_Forms_Design
         {
             this.Close();
         }
+
+        private void logintBtn_Click(object sender, EventArgs e)
+        {
+            String pwd = "1234";
+            if(passwordTextBox.Text == pwd)
+            {
+                MessageBox.Show("登入成功", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("密碼錯誤", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
