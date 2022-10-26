@@ -49,5 +49,11 @@ namespace D05_Multiple_Forms_Design
             WordReaderForm wordReaderForm = new WordReaderForm();
             wordReaderForm.Show();
         }
+
+        private void excelReaderBtn_Click(object sender, EventArgs e)
+        {
+            ExcelReaderForm excelReaderForm = new ExcelReaderForm();
+            excelReaderForm.Show();
+        }
     }
 }
