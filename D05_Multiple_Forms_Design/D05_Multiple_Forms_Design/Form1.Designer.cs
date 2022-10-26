@@ -31,6 +31,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pdfReaderBtn = new System.Windows.Forms.Button();
+            this.wordReaderBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -58,7 +59,7 @@
             // pdfReaderBtn
             // 
             this.pdfReaderBtn.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.pdfReaderBtn.Location = new System.Drawing.Point(58, 300);
+            this.pdfReaderBtn.Location = new System.Drawing.Point(12, 322);
             this.pdfReaderBtn.Name = "pdfReaderBtn";
             this.pdfReaderBtn.Size = new System.Drawing.Size(156, 116);
             this.pdfReaderBtn.TabIndex = 2;
@@ -66,11 +67,22 @@
             this.pdfReaderBtn.UseVisualStyleBackColor = true;
             this.pdfReaderBtn.Click += new System.EventHandler(this.pdfReaderBtn_Click);
             // 
+            // wordReaderBtn
+            // 
+            this.wordReaderBtn.Font = new System.Drawing.Font("PMingLiU", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.wordReaderBtn.Location = new System.Drawing.Point(188, 322);
+            this.wordReaderBtn.Name = "wordReaderBtn";
+            this.wordReaderBtn.Size = new System.Drawing.Size(174, 116);
+            this.wordReaderBtn.TabIndex = 3;
+            this.wordReaderBtn.Text = "打開Word文件閱讀器";
+            this.wordReaderBtn.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.wordReaderBtn);
             this.Controls.Add(this.pdfReaderBtn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -86,6 +98,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button pdfReaderBtn;
+        private System.Windows.Forms.Button wordReaderBtn;
     }
 }
 
