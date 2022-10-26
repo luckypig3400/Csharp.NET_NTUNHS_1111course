@@ -60,6 +60,7 @@
             this.readExcelBtn.TabIndex = 1;
             this.readExcelBtn.Text = "讀取Excel檔案";
             this.readExcelBtn.UseVisualStyleBackColor = true;
+            this.readExcelBtn.Click += new System.EventHandler(this.readExcelBtn_Click);
             // 
             // label1
             // 
@@ -103,6 +104,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(317, 35);
             this.comboBox1.TabIndex = 5;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // ExcelReaderForm
             // 
