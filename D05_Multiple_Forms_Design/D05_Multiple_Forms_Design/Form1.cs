@@ -61,5 +61,11 @@ namespace D05_Multiple_Forms_Design
             MdiFormMain mdiFormMain = new MdiFormMain();
             mdiFormMain.Show();
         }
+
+        private void ThreeIn1DocsReaderBtn_Click(object sender, EventArgs e)
+        {
+            ThreeIn1DocsReaderForm docsForm = new ThreeIn1DocsReaderForm();
+            docsForm.Show();
+        }
     }
 }
