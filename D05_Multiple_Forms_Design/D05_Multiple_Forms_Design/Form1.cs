@@ -24,5 +24,13 @@ namespace D05_Multiple_Forms_Design
             // 打開Form2而不會鎖定Form1
             form2.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+
+            // 打開Form2會鎖定Form1
+            form2.ShowDialog();
+        }
     }
 }

@@ -52,6 +52,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "鎖定第一個視窗，只能操作第二個視窗，關閉第二個後才能操作第一個";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
