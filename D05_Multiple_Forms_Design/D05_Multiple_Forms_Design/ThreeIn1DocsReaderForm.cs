@@ -20,7 +20,12 @@ namespace D05_Multiple_Forms_Design
         private void 打開PDF閱讀器ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pdfReaderForm pdfReader_mdi_child = new pdfReaderForm();
-            pdfReader_mdi_child.MdiParent = this;
+
+            // 修正Adobe PDF Reader無法直接在MDI顯示
+            pdfReader_mdi_child.TopLevel = false;
+            pdfReader_mdi_child.Parent = this;
+            // https://stackoverflow.com/questions/22345962/could-not-view-the-pdf-file-in-the-child-window
+
             pdfReader_mdi_child.Show();
         }
 
@@ -40,12 +45,12 @@ namespace D05_Multiple_Forms_Design
 
         private void 水平排列ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.LayoutMdi(MdiLayout.TileHorizontal);
         }
 
         private void 垂直排列ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.LayoutMdi(MdiLayout.TileVertical);
         }
     }
 }
