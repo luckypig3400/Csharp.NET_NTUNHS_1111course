@@ -6,3 +6,6 @@
 
 ## 期中期末專案
 + https://github.com/luckypig3400/HairSalonMS
+
+## TODO List
+- [ ] [練習D06 Use Case Programming](https://docs.google.com/document/d/19o73u9bmRHPIwN2LzOiwYAHotBxe1oP7/edit)
