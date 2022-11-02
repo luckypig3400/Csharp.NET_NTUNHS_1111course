@@ -19,6 +19,7 @@ namespace D06_Object_and_Class_Design
 
         private void button1_Click(object sender, EventArgs e)
         {
+            /*
             // Employee test= new Employee(); // 因為是abstract，無法新建物件
             EM.EM_BOSS em1 = new EM.EM_BOSS("Tom", "1992.4.5");
             EM.EM_MANAGER em2 = new EM.EM_MANAGER("John", "1993.5.6");
@@ -27,6 +28,18 @@ namespace D06_Object_and_Class_Design
             em1.show_log();
             em2.show_log();
             em3.show_log();
+            */
+
+            // 不管是甚麼自訂變數，一切都照著合約變數(interface)儲存
+            List<EM.iEM> em_list = new List<EM.iEM>();
+            em_list.Add(new EM.EM_BOSS("Tom", "1992.4.5"));
+            em_list.Add(new EM.EM_MANAGER("John", "1993.5.6"));
+            em_list.Add(new EM.EM_ASSISTANT("Joe", "1995.6.7"));
+
+            foreach(EM.iEM element in em_list)
+            {
+                element.show_log();
+            }
         }
     }
 }
@@ -42,6 +55,15 @@ protected internal: 提供 protected 及 internal 二種存取方式
 // 專案: EM
 namespace EM
 {
+    // for contract (契約)
+    interface iEM
+    {
+        // Q.10. 確認程式分工是照著契約設計(designed by contract) (Interface)
+        // A.10 透過interface先向甲乙方確認程式碼符合合作契約規範【show_log()】，接著
+        //         使用Generics(泛型)與Interface來建立員工pool，並一一檢查是否履約
+        void show_log();
+    }
+
     class EM_tool
     {
         // Q.6. 將員工分成boss(老闆), manager(主管), assistant (組員)
@@ -50,7 +72,7 @@ namespace EM
     }
 
     // 主包專案: 程式不變
-    abstract class Employee
+    abstract class Employee: iEM
     {
         //用static來計算目前累積幾個員工
         private static int current_num_of_id = 0;
@@ -104,7 +126,7 @@ namespace EM
     }
 
     // 外包子專案一
-    class EM_BOSS : Employee
+    class EM_BOSS : Employee, iEM
     {
         public EM_BOSS(String in_name, String in_birthday)
                   : base(in_name, in_birthday, EM_tool.EM_type.BOSS)
@@ -118,7 +140,7 @@ namespace EM
         }
     }
     // 外包子專案二
-    class EM_MANAGER : Employee
+    class EM_MANAGER : Employee, iEM
     {
         public EM_MANAGER(String in_name, String in_birthday)
              : base(in_name, in_birthday, EM_tool.EM_type.MANAGER)
@@ -132,7 +154,7 @@ namespace EM
         }
     }
     // 外包子專案三
-    class EM_ASSISTANT : Employee
+    class EM_ASSISTANT : Employee, iEM
     {
         public EM_ASSISTANT(String in_name, String in_birthday)
             : base(in_name, in_birthday, EM_tool.EM_type.ASSISTANT)
