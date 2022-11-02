@@ -52,9 +52,11 @@ namespace EM
         //用static來計算目前累積幾個員工
         private static int current_num_of_id = 0;
 
-        public int id;
-        public String name;
-        public String birthday;
+        // Q.5. 禁止使用者自己改class的屬性，只能透過function來改class屬性
+        // A.5. 將屬性都新增成private, function都加上public
+        private int id;
+        private String name;
+        private String birthday;
 
         public Employee(int in_id, String in_name, String in_birthday)
         {
