@@ -19,10 +19,14 @@ namespace D06_Object_and_Class_Design
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // 初始化物件變數
+            /*
             EM.Employee em1 = new EM.Employee(1, "Tom", "1992.4.5");
             EM.Employee em2 = new EM.Employee(2, "John", "1993.5.6");
             EM.Employee em3 = new EM.Employee(3, "Joe", "1995.6.7");
+            */
+            EM.Employee em1 = new EM.Employee("Tom", "1992.4.5");
+            EM.Employee em2 = new EM.Employee("John", "1993.5.6");
+            EM.Employee em3 = new EM.Employee("Joe", "1995.6.7");
 
             em1.show_log();
             em2.show_log();
@@ -45,6 +49,9 @@ namespace EM
     // 自訂變數: Employee
     class Employee
     {
+        //用static來計算目前累積幾個員工
+        private static int current_num_of_id = 0;
+
         public int id;
         public String name;
         public String birthday;
@@ -52,6 +59,17 @@ namespace EM
         public Employee(int in_id, String in_name, String in_birthday)
         {
             this.id = in_id;
+            this.name = in_name;
+            this.birthday = in_birthday;
+        }
+
+        // 多型(Polymorphism)，用不同的input來達到不同程式目的
+        public Employee(String in_name, String in_birthday)
+        {
+            // 用static來計算目前累積幾個員工
+            Employee.current_num_of_id = Employee.current_num_of_id + 1;
+
+            this.id = Employee.current_num_of_id;
             this.name = in_name;
             this.birthday = in_birthday;
         }
