@@ -19,14 +19,10 @@ namespace D06_Object_and_Class_Design
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Employee test= new Employee(); // 因為是abstract，無法新建物件
             EM.EM_BOSS em1 = new EM.EM_BOSS("Tom", "1992.4.5");
             EM.EM_MANAGER em2 = new EM.EM_MANAGER("John", "1993.5.6");
             EM.EM_ASSISTANT em3 = new EM.EM_ASSISTANT("Joe", "1995.6.7");
-            /*
-            EM.Employee em1 = new EM.Employee("Tom", "1992.4.5", EM.EM_tool.EM_type.BOSS);
-            EM.Employee em2 = new EM.Employee("John", "1993.5.6", EM.EM_tool.EM_type.MANAGER);
-            EM.Employee em3 = new EM.Employee("Joe", "1995.6.7", EM.EM_tool.EM_type.ASSISTANT);
-        	*/
 
             em1.show_log();
             em2.show_log();
@@ -54,7 +50,7 @@ namespace EM
     }
 
     // 主包專案: 程式不變
-    class Employee
+    abstract class Employee
     {
         //用static來計算目前累積幾個員工
         private static int current_num_of_id = 0;
@@ -104,11 +100,7 @@ namespace EM
                        , this.id, this.name, this.birthday, this.type);
         }
 
-        public void show_log()
-        {
-            MessageBox.Show(this.ToString(),
-                "員工資訊", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        public abstract void show_log();
     }
 
     // 外包子專案一
@@ -118,6 +110,12 @@ namespace EM
                   : base(in_name, in_birthday, EM_tool.EM_type.BOSS)
         {
         }
+
+        public override void show_log()
+        {
+            MessageBox.Show("I am BOSS:\n" + this.ToString(),
+                "員工資訊", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
     // 外包子專案二
     class EM_MANAGER : Employee
@@ -126,6 +124,12 @@ namespace EM
              : base(in_name, in_birthday, EM_tool.EM_type.MANAGER)
         {
         }
+
+        public override void show_log()
+        {
+            MessageBox.Show("I am MANAGER:\n" + this.ToString(),
+                "員工資訊", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
     // 外包子專案三
     class EM_ASSISTANT : Employee
@@ -133,6 +137,12 @@ namespace EM
         public EM_ASSISTANT(String in_name, String in_birthday)
             : base(in_name, in_birthday, EM_tool.EM_type.ASSISTANT)
         {
+        }
+
+        public override void show_log()
+        {
+            MessageBox.Show("I am ASSISTANT:\n" + this.ToString(),
+                "員工資訊", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 
