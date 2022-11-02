@@ -36,11 +36,9 @@ namespace D06_Object_and_Class_Design
             em3.name = "Joe";
             em3.birthday = "1995.6.7";
 
-
-            MessageBox.Show(String.Format("id: {0}, name: {1}", em1.id, em1.name));
-            MessageBox.Show(String.Format("id: {0}, name: {1}", em2.id, em2.name));
-            MessageBox.Show(String.Format("id: {0}, name: {1}", em3.id, em3.name));
-
+            em1.show_log();
+            em2.show_log();
+            em3.show_log();
         }
     }
 }
@@ -51,7 +49,6 @@ private:  此類別成員只能在此類別中使用
 protected: 此類別成員可在此類別及繼承此類別的子類別使用
 internal:  在同一個組件中都可存取此類別成員
 protected internal: 提供 protected 及 internal 二種存取方式
- 
 */
 
 // 專案: EM
@@ -60,9 +57,14 @@ namespace EM
     // 自訂變數: Employee
     class Employee
     {
-
         public int id;
         public String name;
         public String birthday;
+
+        public void show_log()
+        {
+            MessageBox.Show(String.Format("id: {0}, name: {1}", this.id, this.name),
+                "員工資訊", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
