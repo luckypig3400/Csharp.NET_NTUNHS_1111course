@@ -19,9 +19,14 @@ namespace D06_Object_and_Class_Design
 
         private void button1_Click(object sender, EventArgs e)
         {
+            EM.EM_BOSS em1 = new EM.EM_BOSS("Tom", "1992.4.5");
+            EM.EM_MANAGER em2 = new EM.EM_MANAGER("John", "1993.5.6");
+            EM.EM_ASSISTANT em3 = new EM.EM_ASSISTANT("Joe", "1995.6.7");
+            /*
             EM.Employee em1 = new EM.Employee("Tom", "1992.4.5", EM.EM_tool.EM_type.BOSS);
             EM.Employee em2 = new EM.Employee("John", "1993.5.6", EM.EM_tool.EM_type.MANAGER);
             EM.Employee em3 = new EM.Employee("Joe", "1995.6.7", EM.EM_tool.EM_type.ASSISTANT);
+        	*/
 
             em1.show_log();
             em2.show_log();
@@ -48,7 +53,7 @@ namespace EM
         public enum EM_type { NONE, BOSS, MANAGER, ASSISTANT};
     }
 
-    // 自訂變數: Employee
+    // 主包專案: 程式不變
     class Employee
     {
         //用static來計算目前累積幾個員工
@@ -98,4 +103,30 @@ namespace EM
                 "員工資訊", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
+
+    // 外包子專案一
+    class EM_BOSS : Employee
+    {
+        public EM_BOSS(String in_name, String in_birthday)
+                  : base(in_name, in_birthday, EM_tool.EM_type.BOSS)
+        {
+        }
+    }
+    // 外包子專案二
+    class EM_MANAGER : Employee
+    {
+        public EM_MANAGER(String in_name, String in_birthday)
+             : base(in_name, in_birthday, EM_tool.EM_type.MANAGER)
+        {
+        }
+    }
+    // 外包子專案三
+    class EM_ASSISTANT : Employee
+    {
+        public EM_ASSISTANT(String in_name, String in_birthday)
+            : base(in_name, in_birthday, EM_tool.EM_type.ASSISTANT)
+        {
+        }
+    }
+
 }
