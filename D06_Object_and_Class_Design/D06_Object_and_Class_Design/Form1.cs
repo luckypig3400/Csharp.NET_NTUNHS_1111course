@@ -19,22 +19,10 @@ namespace D06_Object_and_Class_Design
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // 初始化變數
-            EM.Employee em1 = new EM.Employee();
-            EM.Employee em2 = new EM.Employee();
-            EM.Employee em3 = new EM.Employee();
-
-            em1.id = 1;
-            em1.name = "Tom";
-            em1.birthday = "1992.4.5";
-
-            em2.id = 2;
-            em2.name = "John";
-            em2.birthday = "1993.5.6";
-
-            em3.id = 3;
-            em3.name = "Joe";
-            em3.birthday = "1995.6.7";
+            // 初始化物件變數
+            EM.Employee em1 = new EM.Employee(1, "Tom", "1992.4.5");
+            EM.Employee em2 = new EM.Employee(2, "John", "1993.5.6");
+            EM.Employee em3 = new EM.Employee(3, "Joe", "1995.6.7");
 
             em1.show_log();
             em2.show_log();
@@ -60,6 +48,13 @@ namespace EM
         public int id;
         public String name;
         public String birthday;
+
+        public Employee(int in_id, String in_name, String in_birthday)
+        {
+            this.id = in_id;
+            this.name = in_name;
+            this.birthday = in_birthday;
+        }
 
         public void show_log()
         {
