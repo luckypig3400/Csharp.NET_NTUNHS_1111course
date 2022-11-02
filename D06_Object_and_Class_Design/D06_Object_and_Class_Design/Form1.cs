@@ -50,7 +50,7 @@ namespace EM
     {
         // Q.6. 將員工分成boss(老闆), manager(主管), assistant (組員)
         // A.6. 使用ENUM分類
-        public enum EM_type { NONE, BOSS, MANAGER, ASSISTANT};
+        public enum EM_type { NONE, BOSS, MANAGER, ASSISTANT };
     }
 
     // 主包專案: 程式不變
@@ -96,10 +96,17 @@ namespace EM
             this.type = in_type; // cm6
         }
 
+        public override string ToString()
+        {
+            // Q.8. 客製化內建的ToString()當作簡介員工
+            // A.8. 使用override 複寫ToString()，回傳員工簡歷
+            return String.Format("id: {0}, name: {1}, birthday: {2}, type: {3} "
+                       , this.id, this.name, this.birthday, this.type);
+        }
+
         public void show_log()
         {
-            MessageBox.Show(String.Format("id: {0}, name: {1}, birthday: {2}, type: {3} "
-                       , this.id, this.name, this.birthday, this.type),
+            MessageBox.Show(this.ToString(),
                 "員工資訊", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
