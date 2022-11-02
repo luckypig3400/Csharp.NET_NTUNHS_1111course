@@ -19,19 +19,50 @@ namespace D06_Object_and_Class_Design
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int employee_1_id = 1;
-            String employee_1_name = "Tom";
-            int employee_2_id = 2;
-            String employee_2_name = "John";
-            int employee_3_id = 3;
-            String employee_3_name = "Joe";
+            // 初始化變數
+            EM.Employee em1 = new EM.Employee();
+            EM.Employee em2 = new EM.Employee();
+            EM.Employee em3 = new EM.Employee();
 
-            MessageBox.Show(String.Format("id: {0}, name: {1}"
-                                , employee_1_id, employee_1_name));
-            MessageBox.Show(String.Format("id: {0}, name: {1}"
-                                , employee_2_id, employee_2_name));
-            MessageBox.Show(String.Format("id: {0}, name: {1}"
-                                , employee_3_id, employee_3_name));
+            em1.id = 1;
+            em1.name = "Tom";
+            em1.birthday = "1992.4.5";
+
+            em2.id = 2;
+            em2.name = "John";
+            em2.birthday = "1993.5.6";
+
+            em3.id = 3;
+            em3.name = "Joe";
+            em3.birthday = "1995.6.7";
+
+
+            MessageBox.Show(String.Format("id: {0}, name: {1}", em1.id, em1.name));
+            MessageBox.Show(String.Format("id: {0}, name: {1}", em2.id, em2.name));
+            MessageBox.Show(String.Format("id: {0}, name: {1}", em3.id, em3.name));
+
         }
+    }
+}
+
+/*
+public:  任何外部類別都可不受限制存取此類別成員
+private:  此類別成員只能在此類別中使用
+protected: 此類別成員可在此類別及繼承此類別的子類別使用
+internal:  在同一個組件中都可存取此類別成員
+protected internal: 提供 protected 及 internal 二種存取方式
+ 
+*/
+
+// 專案: EM
+namespace EM
+{
+    // 自訂變數: Employee
+    class Employee
+    {
+
+        public int id;
+        public String name;
+        public String birthday;
     }
 }
