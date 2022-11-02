@@ -19,24 +19,48 @@ namespace D06_Object_and_Class_Design
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*
-            // Employee test= new Employee(); // 因為是abstract，無法新建物件
-            EM.EM_BOSS em1 = new EM.EM_BOSS("Tom", "1992.4.5");
-            EM.EM_MANAGER em2 = new EM.EM_MANAGER("John", "1993.5.6");
-            EM.EM_ASSISTANT em3 = new EM.EM_ASSISTANT("Joe", "1995.6.7");
-
-            em1.show_log();
-            em2.show_log();
-            em3.show_log();
-            */
-
             // 不管是甚麼自訂變數，一切都照著合約變數(interface)儲存
             List<EM.iEM> em_list = new List<EM.iEM>();
+
+            /*
             em_list.Add(new EM.EM_BOSS("Tom", "1992.4.5"));
             em_list.Add(new EM.EM_MANAGER("John", "1993.5.6"));
             em_list.Add(new EM.EM_ASSISTANT("Joe", "1995.6.7"));
+            */
 
-            foreach(EM.iEM element in em_list)
+            // 使用Dependency Inject設計
+            // 剝離【程式碼】與【設定檔】
+            em_list.Add(
+                (EM.iEM) // 契約
+                Activator.CreateInstance( // 新增變數
+                    Type.GetType("EM.EM_BOSS_NEW"),    // 剝離【程式碼】與【設定檔】 
+                    new object[] { "Tom", "1992.4.5" } // 變數輸入值
+                    )
+                );
+
+            em_list.Add(
+                (EM.iEM) // 契約
+                Activator.CreateInstance( // 新增變數
+                    Type.GetType("EM.EM_BOSS"),  // 剝離【程式碼】與【設定檔】
+                    new object[] { "Tom", "1992.4.5" } // 變數輸入值
+                    )
+                );
+            em_list.Add(
+                (EM.iEM) // 契約
+                Activator.CreateInstance( // 新增變數
+                    Type.GetType("EM.EM_MANAGER"), // 剝離【程式碼】與【設定檔】
+                    new object[] { "John", "1993.5.6" } // 變數輸入值
+                    )
+                );
+            em_list.Add(
+                (EM.iEM) // 契約
+                Activator.CreateInstance( // 新增變數
+                    Type.GetType("EM.EM_ASSISTANT"),  // 變數型態
+                    new object[] { "Joe", "1995.6.7" } // 變數輸入值
+                    )
+                );
+
+            foreach (EM.iEM element in em_list)
             {
                 element.show_log();
             }
@@ -139,6 +163,20 @@ namespace EM
                 "員工資訊", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
+
+    class EM_BOSS_NEW : Employee, iEM
+    {
+        public EM_BOSS_NEW(String in_name, String in_birthday)
+                  : base(in_name, in_birthday, EM_tool.EM_type.BOSS)
+        {
+        }
+
+        public override void show_log()
+        {
+            MessageBox.Show(" I am Boss New: " + this.ToString());
+        }
+    }
+
     // 外包子專案二
     class EM_MANAGER : Employee, iEM
     {
