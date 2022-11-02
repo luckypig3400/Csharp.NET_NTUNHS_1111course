@@ -19,14 +19,9 @@ namespace D06_Object_and_Class_Design
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*
-            EM.Employee em1 = new EM.Employee(1, "Tom", "1992.4.5");
-            EM.Employee em2 = new EM.Employee(2, "John", "1993.5.6");
-            EM.Employee em3 = new EM.Employee(3, "Joe", "1995.6.7");
-            */
-            EM.Employee em1 = new EM.Employee("Tom", "1992.4.5");
-            EM.Employee em2 = new EM.Employee("John", "1993.5.6");
-            EM.Employee em3 = new EM.Employee("Joe", "1995.6.7");
+            EM.Employee em1 = new EM.Employee("Tom", "1992.4.5", EM.EM_tool.EM_type.BOSS);
+            EM.Employee em2 = new EM.Employee("John", "1993.5.6", EM.EM_tool.EM_type.MANAGER);
+            EM.Employee em3 = new EM.Employee("Joe", "1995.6.7", EM.EM_tool.EM_type.ASSISTANT);
 
             em1.show_log();
             em2.show_log();
@@ -46,6 +41,13 @@ protected internal: 提供 protected 及 internal 二種存取方式
 // 專案: EM
 namespace EM
 {
+    class EM_tool
+    {
+        // Q.6. 將員工分成boss(老闆), manager(主管), assistant (組員)
+        // A.6. 使用ENUM分類
+        public enum EM_type { NONE, BOSS, MANAGER, ASSISTANT};
+    }
+
     // 自訂變數: Employee
     class Employee
     {
@@ -57,6 +59,7 @@ namespace EM
         private int id;
         private String name;
         private String birthday;
+        private EM_tool.EM_type type = EM_tool.EM_type.NONE; // cm.6.
 
         public Employee(int in_id, String in_name, String in_birthday)
         {
@@ -76,9 +79,22 @@ namespace EM
             this.birthday = in_birthday;
         }
 
+        // cm.6.
+        public Employee(String in_name, String in_birthday, EM_tool.EM_type in_type)
+        {
+            // 用static來計算目前累積幾個員工
+            Employee.current_num_of_id = Employee.current_num_of_id + 1;
+
+            this.id = Employee.current_num_of_id;
+            this.name = in_name;
+            this.birthday = in_birthday;
+            this.type = in_type; // cm6
+        }
+
         public void show_log()
         {
-            MessageBox.Show(String.Format("id: {0}, name: {1}", this.id, this.name),
+            MessageBox.Show(String.Format("id: {0}, name: {1}, birthday: {2}, type: {3} "
+                       , this.id, this.name, this.birthday, this.type),
                 "員工資訊", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
