@@ -69,20 +69,19 @@ namespace D06_Object_and_Class_Design
         private void button2_Click(object sender, EventArgs e)
         {
             // 範例程式碼放這裡
-            Mon_Cases mon_Cases = new Mon_Cases();
+            // Mon_Interface mon_Cases = new Jan();
 
-            Dictionary<int, Mon_Interface> _mon_pool = new Dictionary<int, Mon_Interface>();
-            _mon_pool.Add(1, (Mon_Interface)mon_Cases.show_31);
-            _mon_pool.Add(2, (Mon_Interface)mon_Cases.show_28);
-            _mon_pool.Add(3, (Mon_Interface)mon_Cases.show_31);
-            _mon_pool.Add(4, (Mon_Interface)mon_Cases.show_30);
+            Dictionary<int, Mon_Interface> _mon_pool =
+                          new Dictionary<int, Mon_Interface>();
+
+            _mon_pool.Add(1, new Jan());
+            _mon_pool.Add(2, new Feb());
+            _mon_pool.Add(3, new Mar());
+            _mon_pool.Add(4, new Apr());
 
             string _result = string.Empty;
-            int _mon = 1;
-
-            //step2: dictionary 取代 if/else，人類是看到1=>31天，不是mon==1所以31天
-            // 這個與契約的寫法一樣，業主甲方對的是乙方，業主甲方不是對著機器
-            _result = _mon_pool[_mon](_mon.ToString());
+            int _mon = 2;
+            _result = _mon_pool[_mon].Show(_mon.ToString());
 
             Console.WriteLine(_result);
             Console.ReadLine();
@@ -90,14 +89,26 @@ namespace D06_Object_and_Class_Design
             MessageBox.Show(_result);
         }
 
-        //step1:宣告委派型別
-        public delegate string Mon_Interface(string name);
+        //step1:宣告委派型別。
+        public interface Mon_Interface { string Show(string i_mon); }
 
-        public class Mon_Cases
+        public class Jan : Mon_Interface
         {
-            public string show_31(string i_mon) { return $"{i_mon} is 31 days"; }
-            public string show_30(string i_mon) { return $"{i_mon} is 30 days"; }
-            public string show_28(string i_mon) { return $"{i_mon} is 28 days"; }
+            public string Show(string i_mon) { return $"{i_mon} Jan is 31 days"; }
+        }
+
+        public class Feb : Mon_Interface
+        {
+            public string Show(string i_mon) { return $"{i_mon} Feb is 28 days"; }
+        }
+
+        public class Mar : Mon_Interface
+        {
+            public string Show(string i_mon) { return $"{i_mon} Mar is 31 days"; }
+        }
+        public class Apr : Mon_Interface
+        {
+            public string Show(string i_mon) { return $"{i_mon} Apr is 31 days"; }
         }
 
     }
