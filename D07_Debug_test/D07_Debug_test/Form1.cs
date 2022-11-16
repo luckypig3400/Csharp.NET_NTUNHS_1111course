@@ -20,7 +20,7 @@ namespace D07_Debug_test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int i = 4;
+            int i = 3;
 
             // Debug.Assert 是用在 Debug mode，在release mode中，不會執行Assert
             // i應該要等於4，否則跳出警訊
