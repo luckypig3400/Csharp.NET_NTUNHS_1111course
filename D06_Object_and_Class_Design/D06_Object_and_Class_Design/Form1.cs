@@ -70,7 +70,6 @@ namespace D06_Object_and_Class_Design
         private void button2_Click(object sender, EventArgs e)
         {
             // 範例程式碼放這裡
-            Job_Cases mon_Cases = new Job_Cases();
 
             Job_Interface tmp_job = null; // 安全性程式設計：沒在使用的delegate，要設成null
             // 安全性程式設計：需要針對Queue設一個上限儲存量
@@ -79,39 +78,51 @@ namespace D06_Object_and_Class_Design
             Queue<Job_Interface> job_pool = new Queue<Job_Interface>();
 
             // 先丟3個工作進到pool
-            job_pool.Enqueue((Job_Interface)mon_Cases.job_type_1);
-            job_pool.Enqueue((Job_Interface)mon_Cases.job_type_2);
-            job_pool.Enqueue((Job_Interface)mon_Cases.job_type_1);
+            job_pool.Enqueue((Job_Interface)new Job_1());
+            job_pool.Enqueue((Job_Interface)new Job_2());
+            job_pool.Enqueue((Job_Interface)new Job_1());
 
             // 從pool拿一個出來做
             tmp_job = job_pool.Dequeue();
-            Console.WriteLine(tmp_job.Invoke());
+            Console.WriteLine(tmp_job.Show("我是Tom, 我想要請你幫忙..."));
 
             // 先丟2個工作進到pool
-            job_pool.Enqueue((Job_Interface)mon_Cases.job_type_3);
-            job_pool.Enqueue((Job_Interface)mon_Cases.job_type_2);
+            job_pool.Enqueue((Job_Interface)new Job_3());
+            job_pool.Enqueue((Job_Interface)new Job_4());
 
             // 從pool拿一個出來做
             tmp_job = job_pool.Dequeue();
-            Console.WriteLine(tmp_job.Invoke());
+            Console.WriteLine(tmp_job.Show("我是Mary, 我想要請你幫忙..."));
 
             // 從pool拿一個出來做
             tmp_job = job_pool.Dequeue();
-            Console.WriteLine(tmp_job.Invoke());
+            Console.WriteLine(tmp_job.Show("我是John, 我想要請你幫忙..."));
 
             Console.ReadLine();
 
-            MessageBox.Show(tmp_job.Invoke());
+            MessageBox.Show(tmp_job.Show("我是Mary, 我想要請你幫忙..."));
         }
 
-        //step1:宣告委派型別
-        public delegate string Job_Interface();
+        //step1:宣告Interface
+        public interface Job_Interface { string Show(string i_input); };
 
-        public class Job_Cases
+        public class Job_1 : Job_Interface
         {
-            public string job_type_1() { return $"job_type_1 is done"; }
-            public string job_type_2() { return $"job_type_2 is done"; }
-            public string job_type_3() { return $"job_type_3 is done"; }
+            public string Show(string i_input) { return $"{i_input} job type 1 needs 31 days"; }
+        }
+
+        public class Job_2 : Job_Interface
+        {
+            public string Show(string i_input) { return $"{i_input} job type 2 needs 28 days"; }
+        }
+        public class Job_3 : Job_Interface
+        {
+            public string Show(string i_input) { return $"{i_input} job type 3 needs 31 days"; }
+        }
+
+        public class Job_4 : Job_Interface
+        {
+            public string Show(string i_input) { return $"{i_input} job type 4 needs 30 days"; }
         }
 
     }
