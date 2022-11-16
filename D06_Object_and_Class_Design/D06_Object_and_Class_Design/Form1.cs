@@ -68,7 +68,33 @@ namespace D06_Object_and_Class_Design
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // 範例程式碼放這裡
+            string _result = string.Empty;
+            int _mon = 1;
 
+            //人類告訴機器，mon==1所以31天
+            // 這個與契約的寫法不一樣，因為業主甲方對的是乙方，業主甲方不是對著機器
+            if (_mon.Equals(1))
+            {
+                _result = $"{_mon} is 31 days";
+            }
+            else if (_mon.Equals(2))
+            {
+                _result = $"{_mon} is 28 days";
+            }
+            else if (_mon.Equals(3))
+            {
+                _result = $"{_mon} is 31 days";
+            }
+            else if (_mon.Equals(4))
+            {
+                _result = $"{_mon} is 30 days";
+            }
+
+            Console.WriteLine(_result);
+            Console.ReadLine();
+            
+            MessageBox.Show(_result);
         }
     }
 }
