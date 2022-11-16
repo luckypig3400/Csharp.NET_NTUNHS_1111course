@@ -20,20 +20,18 @@ namespace D07_Debug_test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int i = 3;
+            int sum = 0;
 
-            // Debug.Assert 是用在 Debug mode，在release mode中，不會執行Assert
-            // i應該要等於4，否則跳出警訊
-            Debug.Assert(i == 4);
-            // 檢查i是等於4：會輸出 True Debug: i is not equal to 4
-            Debug.WriteLine(i == 4, "Debug: i is not equal to 4");
+            // 計算1+2+3+4+5+6+7+8+9+10=?
+            for (int i = 1; i < 10; i = i + 1)
+            {
+                sum = sum + i;
+            }
+            Debug.Assert(sum == 55);
+            Debug.WriteLine(sum == 55, "Result: sum is not equal to 55");
 
-            // Trace.Assert 是用在 Debug mode和release mode
-            // i應該要等於4，否則跳出警訊
-            Trace.Assert(i == 4);
-            // 檢查i是等於4：會輸出 True Debug: i is not equal to 4
-            Trace.WriteLine(i == 4, "Trace: i is equal to 4");
-
+            // 應該會跑出 55, 怎麼跑出了 45呢?
+            MessageBox.Show(sum.ToString());
         }
     }
 }
