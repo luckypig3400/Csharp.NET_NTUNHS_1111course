@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static D06_Object_and_Class_Design.Form1;
 
 namespace D06_Object_and_Class_Design
 {
@@ -69,46 +70,48 @@ namespace D06_Object_and_Class_Design
         private void button2_Click(object sender, EventArgs e)
         {
             // 範例程式碼放這裡
-            // Mon_Interface mon_Cases = new Jan();
+            Job_Cases mon_Cases = new Job_Cases();
 
-            Dictionary<int, Mon_Interface> _mon_pool =
-                          new Dictionary<int, Mon_Interface>();
+            Job_Interface tmp_job = null; // 安全性程式設計：沒在使用的delegate，要設成null
+            // 安全性程式設計：需要針對Queue設一個上限儲存量
 
-            _mon_pool.Add(1, new Jan());
-            _mon_pool.Add(2, new Feb());
-            _mon_pool.Add(3, new Mar());
-            _mon_pool.Add(4, new Apr());
+            // 設定號碼牌的擺放位置
+            Queue<Job_Interface> job_pool = new Queue<Job_Interface>();
 
-            string _result = string.Empty;
-            int _mon = 2;
-            _result = _mon_pool[_mon].Show(_mon.ToString());
+            // 先丟3個工作進到pool
+            job_pool.Enqueue((Job_Interface)mon_Cases.job_type_1);
+            job_pool.Enqueue((Job_Interface)mon_Cases.job_type_2);
+            job_pool.Enqueue((Job_Interface)mon_Cases.job_type_1);
 
-            Console.WriteLine(_result);
+            // 從pool拿一個出來做
+            tmp_job = job_pool.Dequeue();
+            Console.WriteLine(tmp_job.Invoke());
+
+            // 先丟2個工作進到pool
+            job_pool.Enqueue((Job_Interface)mon_Cases.job_type_3);
+            job_pool.Enqueue((Job_Interface)mon_Cases.job_type_2);
+
+            // 從pool拿一個出來做
+            tmp_job = job_pool.Dequeue();
+            Console.WriteLine(tmp_job.Invoke());
+
+            // 從pool拿一個出來做
+            tmp_job = job_pool.Dequeue();
+            Console.WriteLine(tmp_job.Invoke());
+
             Console.ReadLine();
 
-            MessageBox.Show(_result);
+            MessageBox.Show(tmp_job.Invoke());
         }
 
-        //step1:宣告委派型別。
-        public interface Mon_Interface { string Show(string i_mon); }
+        //step1:宣告委派型別
+        public delegate string Job_Interface();
 
-        public class Jan : Mon_Interface
+        public class Job_Cases
         {
-            public string Show(string i_mon) { return $"{i_mon} Jan is 31 days"; }
-        }
-
-        public class Feb : Mon_Interface
-        {
-            public string Show(string i_mon) { return $"{i_mon} Feb is 28 days"; }
-        }
-
-        public class Mar : Mon_Interface
-        {
-            public string Show(string i_mon) { return $"{i_mon} Mar is 31 days"; }
-        }
-        public class Apr : Mon_Interface
-        {
-            public string Show(string i_mon) { return $"{i_mon} Apr is 31 days"; }
+            public string job_type_1() { return $"job_type_1 is done"; }
+            public string job_type_2() { return $"job_type_2 is done"; }
+            public string job_type_3() { return $"job_type_3 is done"; }
         }
 
     }
