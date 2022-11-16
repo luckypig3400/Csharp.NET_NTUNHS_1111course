@@ -8,4 +8,6 @@
 + https://github.com/luckypig3400/HairSalonMS
 
 ## TODO List
-- [ ] [練習D06 Use Case Programming](https://docs.google.com/document/d/19o73u9bmRHPIwN2LzOiwYAHotBxe1oP7/edit)
+- [x] [練習D06 Use Case Programming](https://docs.google.com/document/d/19o73u9bmRHPIwN2LzOiwYAHotBxe1oP7/edit)
+- [ ] [完成練習D07 Debug test](https://docs.google.com/document/d/1yIGVT1sJqje5LTYKXpB901A6fKwUvOyR/edit#heading=h.41mghml)
+- [ ] [練習D08 Dynamic binding多專案整合](https://docs.google.com/document/d/1EQJJYe9WS29ShZBpWnAUtVL3tc7_fD5e/edit)
