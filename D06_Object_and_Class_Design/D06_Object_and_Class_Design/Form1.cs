@@ -69,33 +69,37 @@ namespace D06_Object_and_Class_Design
         private void button2_Click(object sender, EventArgs e)
         {
             // 範例程式碼放這裡
+            Mon_Cases mon_Cases = new Mon_Cases();
+
+            Dictionary<int, Mon_Interface> _mon_pool = new Dictionary<int, Mon_Interface>();
+            _mon_pool.Add(1, (Mon_Interface)mon_Cases.show_31);
+            _mon_pool.Add(2, (Mon_Interface)mon_Cases.show_28);
+            _mon_pool.Add(3, (Mon_Interface)mon_Cases.show_31);
+            _mon_pool.Add(4, (Mon_Interface)mon_Cases.show_30);
+
             string _result = string.Empty;
             int _mon = 1;
 
-            //人類告訴機器，mon==1所以31天
-            // 這個與契約的寫法不一樣，因為業主甲方對的是乙方，業主甲方不是對著機器
-            if (_mon.Equals(1))
-            {
-                _result = $"{_mon} is 31 days";
-            }
-            else if (_mon.Equals(2))
-            {
-                _result = $"{_mon} is 28 days";
-            }
-            else if (_mon.Equals(3))
-            {
-                _result = $"{_mon} is 31 days";
-            }
-            else if (_mon.Equals(4))
-            {
-                _result = $"{_mon} is 30 days";
-            }
+            //step2: dictionary 取代 if/else，人類是看到1=>31天，不是mon==1所以31天
+            // 這個與契約的寫法一樣，業主甲方對的是乙方，業主甲方不是對著機器
+            _result = _mon_pool[_mon](_mon.ToString());
 
             Console.WriteLine(_result);
             Console.ReadLine();
-            
+
             MessageBox.Show(_result);
         }
+
+        //step1:宣告委派型別
+        public delegate string Mon_Interface(string name);
+
+        public class Mon_Cases
+        {
+            public string show_31(string i_mon) { return $"{i_mon} is 31 days"; }
+            public string show_30(string i_mon) { return $"{i_mon} is 30 days"; }
+            public string show_28(string i_mon) { return $"{i_mon} is 28 days"; }
+        }
+
     }
 }
 
