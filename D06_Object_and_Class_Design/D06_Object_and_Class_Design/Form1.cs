@@ -65,6 +65,11 @@ namespace D06_Object_and_Class_Design
                 element.show_log();
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
