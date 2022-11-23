@@ -8,13 +8,79 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Data.SQLite;
+
+
 namespace WH_Manage
 {
     public partial class Form1 : Form
     {
+        int index = 1;
+
+        public class DBConfig
+        {
+            //log.db要放在【bin\Debug底下】      
+            public static string dbFile = Application.StartupPath + @"\log.db";
+
+            public static string dbPath = "Data source=" + dbFile;
+
+            public static SQLiteConnection sqlite_connect;
+            public static SQLiteCommand sqlite_cmd;
+            public static SQLiteDataReader sqlite_datareader;
+        }
+
+        private void Load_DB()
+        {
+            DBConfig.sqlite_connect = new SQLiteConnection(DBConfig.dbPath);
+            DBConfig.sqlite_connect.Open();// Open
+
+        }
+
+        private void Show_DB()
+        {
+            this.dataGridView1.Rows.Clear();
+
+            string sql = @"SELECT * from record;";
+            DBConfig.sqlite_cmd = new SQLiteCommand(sql, DBConfig.sqlite_connect);
+            DBConfig.sqlite_datareader = DBConfig.sqlite_cmd.ExecuteReader();
+
+            if (DBConfig.sqlite_datareader.HasRows)
+            {
+                while (DBConfig.sqlite_datareader.Read()) //read every data
+                {
+                    int _serial = Convert.ToInt32(DBConfig.sqlite_datareader["serial"]);
+                    int _date = Convert.ToInt32(DBConfig.sqlite_datareader["date"]);
+                    int _type = Convert.ToInt32(DBConfig.sqlite_datareader["type"]);
+                    string _name = Convert.ToString(DBConfig.sqlite_datareader["name"]);
+                    double _price = Convert.ToDouble(DBConfig.sqlite_datareader["price"]);
+                    double _number = Convert.ToDouble(DBConfig.sqlite_datareader["number"]);
+                    double _total = _price * _number;
+
+                    string _date_str = DateTimeOffset.FromUnixTimeSeconds(_date).ToString("yy-MM-dd hh:mm:ss");
+
+                    string _type_str = "";
+                    if (_type == 0)
+                    { _type_str = "進貨"; }
+                    else { _type_str = "出貨"; }
+
+                    index = _serial;
+                    DataGridViewRowCollection rows = dataGridView1.Rows;
+                    rows.Add(new Object[] { index, _date_str, _type_str, _name, _price, _number
+                                               , _total });
+                }
+                DBConfig.sqlite_datareader.Close();
+            }
+        }
+
+
         public Form1()
         {
             InitializeComponent();
+
+            Load_DB();
+            Show_DB();
+            this.label5.Text = index.ToString();
+
             this.Enabled = false;// 鎖住原來整個表單
             Form2 f2 = new Form2();// 新增一個變數f2，f2是剛剛的帳號密碼視窗
             f2.ShowDialog(); // 打開帳號密碼視窗
