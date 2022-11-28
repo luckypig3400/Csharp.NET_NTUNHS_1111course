@@ -155,6 +155,26 @@ namespace WH_Manage
             }
         }
 
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewCellCollection selRowData = dataGridView1.Rows[e.RowIndex].Cells;
 
+            string _type = "";
+            _type = Convert.ToString(selRowData[2].Value);
+
+            if (_type.Equals("進貨"))
+            {
+                radioButton1.Checked = true;
+            }
+            else
+            {
+                radioButton2.Checked = true;
+            }
+
+            this.comboBox1.Text = Convert.ToString(selRowData[3].Value);
+            this.textBox1.Text = Convert.ToString(selRowData[4].Value);
+            this.textBox2.Text = Convert.ToString(selRowData[5].Value);
+            this.label5.Text = Convert.ToString(selRowData[0].Value);
+        }
     }
 }
