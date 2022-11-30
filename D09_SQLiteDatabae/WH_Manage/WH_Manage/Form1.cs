@@ -98,39 +98,47 @@ namespace WH_Manage
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string i_input_price = textBox1.Text;
-            string i_input_num = textBox2.Text;
-            double _price = Convert.ToDouble(i_input_price);
-            double _num = Convert.ToDouble(i_input_num);
-            double total = 0;
-            total = _price * _num;
+            string _name = "";
+            long _date = 0;
+            int _stock_type = 0;
+            double _price = 0;
+            double _number = 0;
+            double _sum = 0;
 
-            string _radiobutton_log = "";
+            // 抓取textbox的資料
+            _name = comboBox1.Text;
+            _price = Convert.ToDouble(textBox1.Text);
+            _number = Convert.ToDouble(textBox2.Text);
+
+            _sum = _price * _number;
+            _date = DateTimeOffset.Now.ToUnixTimeSeconds();
             if (radioButton1.Checked == true)
             {
-                _radiobutton_log = "進貨";
+                _stock_type = 0;//進貨
             }
             else
             {
-                _radiobutton_log = "出貨";
+                _stock_type = 1;//出貨
             }
+            // update
+            this.index = this.index + 1;
 
-            string sub_string = "";
-            if(comboBox2.SelectedItem!=null)
-            {
-                sub_string= comboBox2.SelectedItem.ToString();
-            }
+            // add item into database
+            string sql = @"INSERT INTO record(date, type, name, price, number)
+                        VALUES("
+                         + " '" + _date.ToString() + "' , "
+                         + " '" + _stock_type.ToString() + "' , "
+                         + " '" + _name.ToString() + "' , "
+                         + " '" + _price.ToString() + "' , "
+                         + " '" + _number.ToString() + "'   "
+                         + ");";
 
-            string _combobox_log = String.Format("{0} {1}",comboBox1.SelectedItem.ToString(), sub_string);
+            // MessageBox.Show(sql);
+            DBConfig.sqlite_cmd = new SQLiteCommand(sql, DBConfig.sqlite_connect);
+            DBConfig.sqlite_cmd.ExecuteNonQuery();
 
-            richTextBox1.Text = String.Format("{0} : {1} {2} "
-                , _price * _num, _radiobutton_log, _combobox_log);
-
-            DataGridViewRowCollection rows = dataGridView1.Rows;
-            DateTime date = DateTime.Now; // 現在時間
-            rows.Add(new Object[] { "", date.ToString("yyyy/MM/dd HH:mm:ss")
-                  , _radiobutton_log, _combobox_log, _price, _num, _price * _num });
-
+            // show database in GUI
+            Show_DB();
         }
 
         private void 關於我ToolStripMenuItem_Click(object sender, EventArgs e)
