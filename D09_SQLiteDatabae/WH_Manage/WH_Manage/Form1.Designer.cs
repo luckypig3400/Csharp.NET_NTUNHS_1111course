@@ -64,6 +64,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.upadateDataBTN = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -169,7 +170,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(135, 415);
+            this.button2.Location = new System.Drawing.Point(265, 415);
             this.button2.Margin = new System.Windows.Forms.Padding(1);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(99, 31);
@@ -434,11 +435,24 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
+            // upadateDataBTN
+            // 
+            this.upadateDataBTN.Font = new System.Drawing.Font("微軟正黑體", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.upadateDataBTN.Location = new System.Drawing.Point(137, 415);
+            this.upadateDataBTN.Margin = new System.Windows.Forms.Padding(1);
+            this.upadateDataBTN.Name = "upadateDataBTN";
+            this.upadateDataBTN.Size = new System.Drawing.Size(99, 31);
+            this.upadateDataBTN.TabIndex = 16;
+            this.upadateDataBTN.Text = "更新資料";
+            this.upadateDataBTN.UseVisualStyleBackColor = true;
+            this.upadateDataBTN.Click += new System.EventHandler(this.upadateDataBTN_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(881, 470);
+            this.Controls.Add(this.upadateDataBTN);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.tabControl1);
@@ -511,6 +525,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button upadateDataBTN;
     }
 }
 

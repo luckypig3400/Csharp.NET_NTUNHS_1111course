@@ -184,5 +184,43 @@ namespace WH_Manage
             this.textBox2.Text = Convert.ToString(selRowData[5].Value);
             this.label5.Text = Convert.ToString(selRowData[0].Value);
         }
+
+        private void upadateDataBTN_Click(object sender, EventArgs e)
+        {
+            string _name = "";
+            int _serial = 0;
+            int _stock_type = 0;
+            double _price = 0;
+            double _number = 0;
+
+            if (radioButton1.Checked == true)
+            {
+                _stock_type = 0;
+            }
+            else
+            {
+                _stock_type = 1;
+            }
+
+            // 抓取textbox的資料
+            _name = comboBox1.Text;
+
+            _price = Convert.ToDouble(textBox1.Text);
+            _number = Convert.ToDouble(textBox2.Text);
+            _serial = Convert.ToInt32(label5.Text);
+
+
+            string sql = @"UPDATE record "
+                        +" SET name = '" + _name + "',"
+                        + " type = '" + _stock_type.ToString() + "' , "
+                        + " price = '" + _price.ToString() + "',"
+                        + " number = '" + _number.ToString() + "' "
+                        + " where serial = " + _serial.ToString() + ";";
+
+            MessageBox.Show(sql);
+            DBConfig.sqlite_cmd = new SQLiteCommand(sql, DBConfig.sqlite_connect);
+            DBConfig.sqlite_cmd.ExecuteNonQuery();
+            Show_DB();
+        }
     }
 }
