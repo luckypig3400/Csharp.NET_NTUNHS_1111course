@@ -33,5 +33,25 @@ namespace D07_Debug_test
             // 應該會跑出 55, 怎麼跑出了 45呢?
             MessageBox.Show(sum.ToString());
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int sum = 0;
+
+            sum = add(3, 4);
+
+            sum = add(sum, 8);
+
+            sum = add(9, sum);
+
+            MessageBox.Show(sum.ToString());
+        }
+
+        private int add(int i_a, int i_b)
+        {
+            int result = 0;
+            result = i_a + i_b;
+            return result;
+        }
     }
 }
