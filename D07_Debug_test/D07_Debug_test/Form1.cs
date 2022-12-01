@@ -67,5 +67,9 @@ namespace D07_Debug_test
         {
             return _x + _y;
         }
+
+        public double multiply(double a, double b) {
+            return a * b;
+        }
     }
 }

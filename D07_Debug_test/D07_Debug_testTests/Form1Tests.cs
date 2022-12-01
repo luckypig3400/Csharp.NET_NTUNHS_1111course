@@ -23,13 +23,12 @@ namespace D07_Debug_test.Tests
                             2.3, // delta 忍受誤差範圍
                             "error (delta=2.3) " // error message，錯誤時會跳出這個訊息
                             );
-            /*
+
             Assert.AreEqual(1.4, // expected value
                             1.62, // actual value
                             0.1, // delta 忍受誤差範圍
                             "error (delta=0.1) " // error message，錯誤時會跳出這個訊息
                             );
-            */
         }
 
         [TestMethod()]
@@ -43,5 +42,15 @@ namespace D07_Debug_test.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod()]
+        public void multiplyTest()
+        {
+            double expected = 54.0;
+            double actual;
+
+            Form1 test = new Form1();
+            actual = test.multiply(6.0, 9.0);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
