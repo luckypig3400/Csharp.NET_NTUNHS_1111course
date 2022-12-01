@@ -53,5 +53,18 @@ namespace D07_Debug_test
             result = i_a + i_b;
             return result;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            double result = Add(3.0, 3.9);
+
+            MessageBox.Show(result.ToString());
+        }
+
+        // 針對下面這個做unit test
+        public double Add(double _x, double _y)
+        {
+            return _x + _y;
+        }
     }
 }
