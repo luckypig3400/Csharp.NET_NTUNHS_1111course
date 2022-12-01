@@ -62,6 +62,7 @@ namespace D07_Debug_test
         }
 
         // 針對下面這個做unit test
+        // https://docs.google.com/document/d/1yIGVT1sJqje5LTYKXpB901A6fKwUvOyR/edit#heading=h.w2vbtltvgnv1
         public double Add(double _x, double _y)
         {
             return _x + _y;
