@@ -9,7 +9,7 @@
 
 ## TODO List
 - [x] [練習D06 Use Case Programming](https://docs.google.com/document/d/19o73u9bmRHPIwN2LzOiwYAHotBxe1oP7/edit)
-- [ ] [完成練習D07 Debug test](https://docs.google.com/document/d/1yIGVT1sJqje5LTYKXpB901A6fKwUvOyR/edit#heading=h.41mghml)
+- [x] [完成練習D07 Debug test](https://docs.google.com/document/d/1yIGVT1sJqje5LTYKXpB901A6fKwUvOyR/edit#heading=h.41mghml)
 - [ ] [練習D08 Dynamic binding多專案整合](https://docs.google.com/document/d/1EQJJYe9WS29ShZBpWnAUtVL3tc7_fD5e/edit)
 - [x] [練習D09 SQLite Database資料庫連接] (https://docs.google.com/document/d/1toNABMZKYevbL4xSeJ9C7zm4-hvnYieU/edit)
 - [ ] [練習D10 匯出資料與統計圖表] (https://drive.google.com/drive/folders/1eWeI_X5S1IjviNmUwcaqoEqXBympTDw_?usp=share_link)
