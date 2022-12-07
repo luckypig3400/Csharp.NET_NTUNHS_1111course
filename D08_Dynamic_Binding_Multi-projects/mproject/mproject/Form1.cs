@@ -16,5 +16,21 @@ namespace mproject
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // 功能1: 初始化邊長
+            double edge = 2.3;
+
+            // 功能2: 計算正方形面積
+            double rect_result = edge * edge;
+
+            // 功能3: 計算正方體體積
+            double cube_result = edge * edge * edge;
+
+            // 功能4: 跳出正方形面積與體積的資料
+            MessageBox.Show(String.Format("正方型面積 {0}, 正立方體面積 {1}",
+                                             rect_result, cube_result));
+        }
     }
 }
