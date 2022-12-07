@@ -117,4 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>using System;
+
+namespace mproject
+{
+    // for 團隊一
+    // for contract (契約)
+    public interface iMeasurement
+    {
+        double cal(double edge);
+    }
+
+    // for 團隊二
+    public class rect : iMeasurement
+    {
+        public double measurement;
+
+        public rect()
+        {
+            measurement = 0;
+        }
+
+        public double cal(double i_edge)
+        {
+            measurement = i_edge * i_edge;
+            return measurement;
+        }
+    }
+
+    // for 團隊三
+    public class cube : iMeasurement
+    {
+        public double measurement;
+
+        public cube()
+        {
+            measurement = 0;
+        }
+        public double cal(double i_edge)
+        {
+            measurement = i_edge * i_edge * i_edge;
+            return measurement;
+        }
+    }
+}</value>
+  </data>
 </root>
