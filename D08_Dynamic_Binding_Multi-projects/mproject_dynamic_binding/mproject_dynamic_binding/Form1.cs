@@ -79,6 +79,53 @@ namespace mproject_dynamic_binding
             MessageBox.Show(dynamic_result.ToString());
 
         }
+
+        public static void test()
+        {
+            Assembly assembly;
+            Type type;
+
+            string path = @"G:\Base\SelfBasic\cl1\bin\Debug\cl1.dll";
+            assembly = Assembly.LoadFrom(path);
+            //獲取程式集例項中具有指定名稱的Type物件
+            type = assembly.GetType("cl1.Class1");
+            //獲取Class1物件
+            var C1 = Activator.CreateInstance(type);//建構函式public Class1() 
+            var C2 = Activator.CreateInstance(type, "string");//建構函式public Class1(string name) 
+
+            //建構函式public Class1(string name,int age)
+            var C3 = Activator.CreateInstance(type, "string", 123);
+            //獲取方法
+            //方法名M1在Class1類中沒有過載，獲取明確 方法為私有或不存在時返回null
+            var m1 = type.GetMethod("M1");
+            //執行m1 M1函式為靜態的，且無參，Invoke中引數可為null
+            var val1 = m1.Invoke(null, null);
+
+            //獲取public static void M2(string name)
+            var m2 = type.GetMethod("M2", new Type[] { typeof(string) });
+            var val2 = m2.Invoke(null, new object[] { "str" });//執行m2
+
+            //獲取public static void M2(string name, int age)
+            var m3 = type.GetMethod("M2", new Type[] { typeof(string), typeof(int) });
+            var val3 = m3.Invoke(null, new object[] { "str", 124 });//執行m3
+
+            //非靜態函式的獲取及呼叫
+            var m4 = type.GetMethod("M3");
+            var val4 = m4.Invoke(C1, null);
+            val4 = m4.Invoke(C2, null);
+            val4 = m4.Invoke(C3, null);
+
+            var m5 = type.GetMethod("M4", new Type[] { typeof(string) });
+            var val5 = m5.Invoke(C1, new object[] { "dtr" });
+            val5 = m5.Invoke(C2, new object[] { "dtr" });
+            val5 = m5.Invoke(C3, new object[] { "dtr" });
+
+            var m6 = type.GetMethod("M4", new Type[] { typeof(int) });
+            var val6 = m6.Invoke(C1, new object[] { 225 });
+            val6 = m6.Invoke(C2, new object[] { 225 });
+            val6 = m6.Invoke(C3, new object[] { 225 });
+        }
+
     }
 
     // for 團隊一
