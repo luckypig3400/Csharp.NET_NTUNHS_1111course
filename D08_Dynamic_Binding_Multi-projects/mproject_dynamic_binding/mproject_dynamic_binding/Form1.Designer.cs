@@ -61,6 +61,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "點我計算\r\n(6. 補充教材2: Dynamic Binding-在執行程式時，動態抽換還沒編譯好的程式碼)";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 

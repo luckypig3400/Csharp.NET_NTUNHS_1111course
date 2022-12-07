@@ -9,8 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 //dynamic binding
+//using System.Reflection;
+
+// 動態編譯與執行所需要的函示庫
+using System.CodeDom.Compiler;
+using System.IO;
+using Microsoft.CSharp;
 using System.Reflection;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace mproject_dynamic_binding
 {
@@ -126,6 +132,74 @@ namespace mproject_dynamic_binding
             val6 = m6.Invoke(C3, new object[] { 225 });
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // 1: 初始化邊長
+            double edge = 2.3;
+
+
+            // 2: 即時寫一段程式碼
+            // 用@時: " 要改成 ""
+            string[] code = { richTextBox1.Text };
+
+            // 3. 設定C#編譯器
+            CompilerParameters CompilerParams = new CompilerParameters();
+
+            CompilerParams.GenerateInMemory = true;
+            CompilerParams.TreatWarningsAsErrors = false;
+            CompilerParams.GenerateExecutable = false;
+            CompilerParams.CompilerOptions = "/optimize";
+
+            string[] references = { "System.dll" }; // 輸出的dll檔案
+            CompilerParams.ReferencedAssemblies.AddRange(references);
+
+
+
+
+
+            // 4. 開始編譯程式
+            CSharpCodeProvider provider = new CSharpCodeProvider();
+            CompilerResults compile = provider.CompileAssemblyFromSource(
+                                                                  CompilerParams,
+                                                                  code
+                                                                  );
+
+            if (compile.Errors.HasErrors) // show出編譯失敗訊息
+            {
+                string text = "Compile error: ";
+                foreach (CompilerError ce in compile.Errors)
+                {
+                    text += "rn" + ce.ToString();
+                }
+                throw new Exception(text);
+            }
+
+            // 5. 開始執行程式
+            Module module = null;
+            Type type = null;
+            MethodInfo methInfo = null;
+
+            // 5.1. 取得dll檔
+            module = compile.CompiledAssembly.GetModules()[0];
+
+            // 5.2. 取得class名稱
+            type = module.GetType("mproject.rect");
+
+            // 5.3. 初始化object
+            var dynamic_object = Activator.CreateInstance(type);
+
+            // 5.4. 取得functione: cal
+            methInfo = type.GetMethod("cal", new Type[] { typeof(double) });
+
+            // 5.5. 取得運算結果
+            var result = methInfo.Invoke(dynamic_object,  // 第一個輸入物件
+                                            new object[] { edge } // 第二個輸入參數
+                                            );
+
+            // 6. 印出結果
+            MessageBox.Show(result.ToString());
+
+        }
     }
 
     // for 團隊一
