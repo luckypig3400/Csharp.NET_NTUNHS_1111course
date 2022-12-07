@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Team1;
+using Team2;
 
 namespace mproject
 {

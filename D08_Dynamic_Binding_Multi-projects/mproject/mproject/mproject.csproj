@@ -47,6 +47,9 @@
     <Reference Include="Team1">
       <HintPath>..\..\Team1\Team1\bin\Debug\Team1.dll</HintPath>
     </Reference>
+    <Reference Include="Team2">
+      <HintPath>..\..\Team2\Team2\bin\Debug\Team2.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">
