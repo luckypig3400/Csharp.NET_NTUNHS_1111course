@@ -183,7 +183,7 @@ namespace mproject_dynamic_binding
             module = compile.CompiledAssembly.GetModules()[0];
 
             // 5.2. 取得class名稱
-            type = module.GetType("mproject.rect");
+            type = module.GetType("mproject.cube");
 
             // 5.3. 初始化object
             var dynamic_object = Activator.CreateInstance(type);
