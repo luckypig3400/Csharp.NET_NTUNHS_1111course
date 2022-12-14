@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.drawChartBTN = new System.Windows.Forms.Button();
             this.exportImageBTN = new System.Windows.Forms.Button();
             this.exportExcelBTN = new System.Windows.Forms.Button();
@@ -58,6 +58,7 @@
             this.exportImageBTN.TabIndex = 1;
             this.exportImageBTN.Text = "匯出圖片";
             this.exportImageBTN.UseVisualStyleBackColor = true;
+            this.exportImageBTN.Click += new System.EventHandler(this.exportImageBTN_Click);
             // 
             // exportExcelBTN
             // 
@@ -71,18 +72,18 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(12, 12);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.Label = "#VAL";
-            series2.Legend = "Legend1";
-            series2.Name = "stocks";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Label = "#VAL";
+            series1.Legend = "Legend1";
+            series1.Name = "stocks";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(758, 454);
             this.chart1.TabIndex = 3;
             this.chart1.Text = "chart1";
