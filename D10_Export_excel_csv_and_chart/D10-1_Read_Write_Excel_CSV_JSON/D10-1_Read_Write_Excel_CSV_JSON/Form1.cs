@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Newtonsoft.Json;
+
 using Excel = Microsoft.Office.Interop.Excel;// for read/write Excel
 
 namespace D10_1_Read_Write_Excel_CSV_JSON
@@ -190,5 +192,38 @@ namespace D10_1_Read_Write_Excel_CSV_JSON
             string[] words = first_line.Split(',');
             MessageBox.Show(words[2]);
         }
+
+        private void outputJsonBTN_Click(object sender, EventArgs e)
+        {
+            // 設定儲存json檔
+            SaveFileDialog save = new SaveFileDialog();
+            save.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            save.FileName = "Export_Chart_Data.json";
+            if (save.ShowDialog() != DialogResult.OK) return;
+
+            string strFilePath = save.FileName;
+
+            List<Student> lstStuModel = new List<Student>()
+            {
+                new Student(){ID=1,Name="張飛",Age=250,Sex="男"},
+                new Student(){ID=2,Name="潘金蓮",Age=300,Sex="女"},
+            };
+
+            //Newtonsoft.Json序列化
+            string jsonData = JsonConvert.SerializeObject(lstStuModel);
+
+            MessageBox.Show(jsonData);
+            System.IO.File.WriteAllText(strFilePath, jsonData);
+
+        }
+
+        public class Student
+        {
+            public int ID { get; set; }
+            public string Name { get; set; }
+            public int Age { get; set; }
+            public string Sex { get; set; }
+        }
+
     }
 }

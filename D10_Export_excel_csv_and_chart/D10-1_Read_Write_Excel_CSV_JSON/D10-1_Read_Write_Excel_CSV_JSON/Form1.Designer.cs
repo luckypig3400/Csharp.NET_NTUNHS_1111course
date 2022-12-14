@@ -105,6 +105,7 @@
             this.outputJsonBTN.TabIndex = 4;
             this.outputJsonBTN.Text = "Output JSON";
             this.outputJsonBTN.UseVisualStyleBackColor = true;
+            this.outputJsonBTN.Click += new System.EventHandler(this.outputJsonBTN_Click);
             // 
             // Form1
             // 
