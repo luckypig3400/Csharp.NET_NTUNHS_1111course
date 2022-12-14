@@ -28,21 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.drawChartBTN = new System.Windows.Forms.Button();
+            this.exportImageBTN = new System.Windows.Forms.Button();
+            this.exportExcelBTN = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // drawChartBTN
+            // 
+            this.drawChartBTN.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.drawChartBTN.Location = new System.Drawing.Point(12, 472);
+            this.drawChartBTN.Name = "drawChartBTN";
+            this.drawChartBTN.Size = new System.Drawing.Size(240, 69);
+            this.drawChartBTN.TabIndex = 0;
+            this.drawChartBTN.Text = "繪圖";
+            this.drawChartBTN.UseVisualStyleBackColor = true;
+            // 
+            // exportImageBTN
+            // 
+            this.exportImageBTN.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.exportImageBTN.Location = new System.Drawing.Point(270, 472);
+            this.exportImageBTN.Name = "exportImageBTN";
+            this.exportImageBTN.Size = new System.Drawing.Size(240, 69);
+            this.exportImageBTN.TabIndex = 1;
+            this.exportImageBTN.Text = "匯出圖片";
+            this.exportImageBTN.UseVisualStyleBackColor = true;
+            // 
+            // exportExcelBTN
+            // 
+            this.exportExcelBTN.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.exportExcelBTN.Location = new System.Drawing.Point(530, 472);
+            this.exportExcelBTN.Name = "exportExcelBTN";
+            this.exportExcelBTN.Size = new System.Drawing.Size(240, 69);
+            this.exportExcelBTN.TabIndex = 2;
+            this.exportExcelBTN.Text = "匯出Excel";
+            this.exportExcelBTN.UseVisualStyleBackColor = true;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(12, 12);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Label = "#VAL";
+            series1.Legend = "Legend1";
+            series1.Name = "stocks";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(758, 454);
+            this.chart1.TabIndex = 3;
+            this.chart1.Text = "chart1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.exportExcelBTN);
+            this.Controls.Add(this.exportImageBTN);
+            this.Controls.Add(this.drawChartBTN);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button drawChartBTN;
+        private System.Windows.Forms.Button exportImageBTN;
+        private System.Windows.Forms.Button exportExcelBTN;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 
