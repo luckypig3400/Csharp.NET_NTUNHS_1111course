@@ -225,5 +225,24 @@ namespace D10_1_Read_Write_Excel_CSV_JSON
             public string Sex { get; set; }
         }
 
+        private void readJsonBTN_Click(object sender, EventArgs e)
+        {
+            //Newtonsoft.Json反序列化: one element
+            string json = @"{ 'Name':'C#','Age':'3000','ID':'1','Sex':'女'}";
+            Student descJsonStu = JsonConvert.DeserializeObject<Student>(json);//反序列化
+            MessageBox.Show(string.Format("反序列化： ID={0},Name={1},Sex={2},Sex={3}", descJsonStu.ID, descJsonStu.Name, descJsonStu.Age, descJsonStu.Sex));
+
+            // 打開json檔
+            OpenFileDialog open = new OpenFileDialog();
+            open.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            if (open.ShowDialog() != DialogResult.OK) return;
+
+            System.IO.StreamReader sr = new System.IO.StreamReader(open.FileName);
+
+            string lines = sr.ReadToEnd();
+            //Newtonsoft.Json反序列化: collection
+            List<Student> json_collection = JsonConvert.DeserializeObject<List<Student>>(lines);
+            MessageBox.Show(string.Format("反序列化： ID={0}, ID={1}", json_collection[0].ID, json_collection[1].ID));
+        }
     }
 }

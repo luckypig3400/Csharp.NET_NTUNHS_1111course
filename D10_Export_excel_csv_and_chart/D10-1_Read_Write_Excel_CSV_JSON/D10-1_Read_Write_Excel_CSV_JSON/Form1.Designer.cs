@@ -94,6 +94,7 @@
             this.readJsonBTN.TabIndex = 5;
             this.readJsonBTN.Text = "Read JSON";
             this.readJsonBTN.UseVisualStyleBackColor = true;
+            this.readJsonBTN.Click += new System.EventHandler(this.readJsonBTN_Click);
             // 
             // outputJsonBTN
             // 
