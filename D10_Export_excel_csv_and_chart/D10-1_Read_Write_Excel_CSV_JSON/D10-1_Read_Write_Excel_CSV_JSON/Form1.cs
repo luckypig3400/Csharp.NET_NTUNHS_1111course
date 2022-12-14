@@ -21,6 +21,11 @@ namespace D10_1_Read_Write_Excel_CSV_JSON
 
         private void outputExcelBTN_Click(object sender, EventArgs e)
         {
+            // 如果出現類似以下的錯誤可以嘗試安裝WPS或是手動更改註冊碼試試看
+            // 無法將類型爲“Microsoft.Office.Interop.Excel.ApplicationClass”的 COM 對象強制轉換爲接口類型“Microsoft.Office.Interop.Excel._Application”。此操作失敗的原因是對 IID 爲“{ 000208D5 - 0000 - 0000 - C000 - 000000000046}”的接口的 COM 組件調用 QueryInterface 因以下錯誤而失敗: 庫沒有註冊。 (異常來自 HRESULT: 0x8002801D(TYPE_E_LIBNOTREGISTERED))。
+            // 巴哈 C# Excel 輸出異常排除方法:https://home.gamer.com.tw/creationDetail.php?sn=4763231
+            // 更改註冊碼: https://www.cnblogs.com/beginner-boy/p/7998017.html
+
             // Excel 物件
             Excel.Application xls = null; // 新增一個excel應用程式
             try
