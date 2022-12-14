@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Excel = Microsoft.Office.Interop.Excel;
+using Excel = Microsoft.Office.Interop.Excel;// for read/write Excel
 
 namespace D10_1_Read_Write_Excel_CSV_JSON
 {
@@ -109,6 +109,45 @@ namespace D10_1_Read_Write_Excel_CSV_JSON
             {
                 xls.Quit();
             }
+        }
+
+        private void readExcelBTN_Click(object sender, EventArgs e)
+        {
+            // 讀取excel檔的檔案選擇視窗
+            OpenFileDialog open = new OpenFileDialog();
+            open.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            open.Filter = "*.xlsx|*.xlsx";
+            if (open.ShowDialog() != DialogResult.OK) return;
+
+            // 秀出要讀的檔案名稱
+            MessageBox.Show(open.FileName);
+
+            // 新增Excel 的應用程式
+            Excel.Application xls = null;
+            try
+            {
+                // 打開excel應用程式
+                xls = new Excel.Application();
+                // 打開excel檔
+                Excel.Workbook book = xls.Workbooks.Open(open.FileName);
+                // 打開最後瀏覽的sheet (ActiveSheet)
+                Excel.Worksheet Sheet = xls.ActiveSheet;
+
+                // 讀取cell 儲存格[y,x]
+                MessageBox.Show(Sheet.Cells[1, 1].Value.ToString());
+                // 讀取第2個工作表的第y=1,x=2 儲存格
+                MessageBox.Show(book.Sheets[2].Cells[1, 2].Value.ToString());
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.ToString());
+                throw;
+            }
+            finally
+            {
+                xls.Quit();
+            }
+
         }
     }
 }

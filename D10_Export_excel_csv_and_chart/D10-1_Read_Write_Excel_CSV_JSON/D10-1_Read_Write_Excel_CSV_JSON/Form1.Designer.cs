@@ -58,6 +58,7 @@
             this.readExcelBTN.TabIndex = 1;
             this.readExcelBTN.Text = "Read Excel";
             this.readExcelBTN.UseVisualStyleBackColor = true;
+            this.readExcelBTN.Click += new System.EventHandler(this.readExcelBTN_Click);
             // 
             // readCsvBTN
             // 
