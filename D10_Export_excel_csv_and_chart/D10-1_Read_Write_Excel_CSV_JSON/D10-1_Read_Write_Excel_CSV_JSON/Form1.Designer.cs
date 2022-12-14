@@ -70,6 +70,7 @@
             this.readCsvBTN.TabIndex = 3;
             this.readCsvBTN.Text = "Read CSV";
             this.readCsvBTN.UseVisualStyleBackColor = true;
+            this.readCsvBTN.Click += new System.EventHandler(this.readCsvBTN_Click);
             // 
             // outputCsvBTN
             // 

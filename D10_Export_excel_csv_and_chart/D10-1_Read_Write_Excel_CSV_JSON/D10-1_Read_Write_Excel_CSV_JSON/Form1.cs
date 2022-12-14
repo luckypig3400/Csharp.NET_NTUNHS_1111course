@@ -177,5 +177,18 @@ namespace D10_1_Read_Write_Excel_CSV_JSON
             System.IO.File.AppendAllText(strFilePath, sbOutput.ToString());
 
         }
+
+        private void readCsvBTN_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            if (open.ShowDialog() != DialogResult.OK) return;
+
+            System.IO.StreamReader sr = new System.IO.StreamReader(open.FileName);
+            string first_line = sr.ReadLine();
+            MessageBox.Show(first_line);
+            string[] words = first_line.Split(',');
+            MessageBox.Show(words[2]);
+        }
     }
 }
