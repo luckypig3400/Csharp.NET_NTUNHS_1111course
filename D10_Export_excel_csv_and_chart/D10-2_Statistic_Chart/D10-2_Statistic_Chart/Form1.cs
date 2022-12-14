@@ -16,5 +16,13 @@ namespace D10_2_Statistic_Chart
         {
             InitializeComponent();
         }
+
+        private void drawChartBTN_Click(object sender, EventArgs e)
+        {
+            this.chart1.Series["stocks"].Points.AddXY("1", 123);
+            this.chart1.Series["stocks"].Points.AddXY("哈哈", 12);
+            this.chart1.Series["stocks"].Points.AddXY("abc", 44);
+            this.chart1.Series["stocks"].Points.AddXY("c#", 123);
+        }
     }
 }
