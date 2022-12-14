@@ -149,5 +149,33 @@ namespace D10_1_Read_Write_Excel_CSV_JSON
             }
 
         }
+
+        private void outputCsvBTN_Click(object sender, EventArgs e)
+        {
+            // 設定儲存csv檔
+            SaveFileDialog save = new SaveFileDialog();
+            save.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            save.FileName = "Export_Chart_Data.csv";
+            if (save.ShowDialog() != DialogResult.OK) return;
+
+            string strFilePath = save.FileName;
+            StringBuilder sbOutput = new StringBuilder();
+
+            for (int i = 0; i < 10; i++)
+            {
+                string tmp = String.Format("{0}", i);
+                for (int j = 1; j < 10; j++)
+                {
+                    tmp = String.Format("{0},{1}{2}", tmp, i, j);
+                }
+                sbOutput.AppendLine(tmp);
+            }
+            // Create and write the csv file
+            System.IO.File.WriteAllText(strFilePath, sbOutput.ToString());
+
+            // To append more lines to the csv file
+            System.IO.File.AppendAllText(strFilePath, sbOutput.ToString());
+
+        }
     }
 }

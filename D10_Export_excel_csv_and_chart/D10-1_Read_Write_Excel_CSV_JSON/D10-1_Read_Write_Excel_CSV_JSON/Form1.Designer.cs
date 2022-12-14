@@ -81,6 +81,7 @@
             this.outputCsvBTN.TabIndex = 2;
             this.outputCsvBTN.Text = "Output CSV";
             this.outputCsvBTN.UseVisualStyleBackColor = true;
+            this.outputCsvBTN.Click += new System.EventHandler(this.outputCsvBTN_Click);
             // 
             // readJsonBTN
             // 
