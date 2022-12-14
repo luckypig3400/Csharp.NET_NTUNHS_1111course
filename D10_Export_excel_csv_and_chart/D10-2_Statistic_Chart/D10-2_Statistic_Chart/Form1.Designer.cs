@@ -108,6 +108,8 @@
             this.chart2.Location = new System.Drawing.Point(635, 12);
             this.chart2.Name = "chart2";
             series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.CustomProperties = "PieLineColor=Black";
             series2.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series2.Label = "#VAL";
             series2.Legend = "Legend1";

@@ -19,10 +19,23 @@ namespace D10_2_Statistic_Chart
 
         private void drawChartBTN_Click(object sender, EventArgs e)
         {
+            // 繪製長條圖資料
             this.chart1.Series["stocks"].Points.AddXY("1", 123);
             this.chart1.Series["stocks"].Points.AddXY("哈哈", 12);
             this.chart1.Series["stocks"].Points.AddXY("abc", 44);
             this.chart1.Series["stocks"].Points.AddXY("c#", 123);
+
+            // 繪製圓餅圖資料
+            int indexPie = 0;
+            indexPie = this.chart2.Series["stocks"].Points.AddXY("自己寫", 123);
+            this.chart2.Series["stocks"].Points[indexPie].Label = "自己寫:123";
+
+            indexPie = this.chart2.Series["stocks"].Points.AddXY("C#", 36);
+            this.chart2.Series["stocks"].Points[indexPie].Label = "C#:36";
+
+            indexPie = this.chart2.Series["stocks"].Points.AddXY("hhh", 69);
+            this.chart2.Series["stocks"].Points[indexPie].Label = "hhh:69";
+
         }
 
         private void exportImageBTN_Click(object sender, EventArgs e)
