@@ -128,6 +128,7 @@
             this.chart3.Location = new System.Drawing.Point(12, 407);
             this.chart3.Name = "chart3";
             series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series3.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series3.Label = "#VAL";
             series3.Legend = "Legend1";

@@ -36,6 +36,14 @@ namespace D10_2_Statistic_Chart
             indexPie = this.chart2.Series["stocks"].Points.AddXY("hhh", 69);
             this.chart2.Series["stocks"].Points[indexPie].Label = "hhh:69";
 
+            // 繪製折線圖資料
+            int indexLine = 0;
+            indexLine = this.chart3.Series["stocks"].Points.AddXY(1, 123);
+            indexLine = this.chart3.Series["stocks"].Points.AddXY(2, 23);
+            indexLine = this.chart3.Series["stocks"].Points.AddXY(5, 69);
+            indexLine = this.chart3.Series["stocks"].Points.AddXY(8, 96);
+            indexLine = this.chart3.Series["stocks"].Points.AddXY(15, 168);
+            indexLine = this.chart3.Series["stocks"].Points.AddXY(16, 169);
         }
 
         private void exportImageBTN_Click(object sender, EventArgs e)
