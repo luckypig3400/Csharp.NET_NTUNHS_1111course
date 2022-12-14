@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D10-2_Statistic_Chart", "D10-2_Statistic_Chart\D10-2_Statistic_Chart.csproj", "{C57D376F-7DBD-4B6F-ADA6-E4D966E1F71C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C57D376F-7DBD-4B6F-ADA6-E4D966E1F71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57D376F-7DBD-4B6F-ADA6-E4D966E1F71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57D376F-7DBD-4B6F-ADA6-E4D966E1F71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57D376F-7DBD-4B6F-ADA6-E4D966E1F71C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A81BE355-FEFF-4B79-ADDF-A8AA3774D1EE}
+	EndGlobalSection
+EndGlobal
