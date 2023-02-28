@@ -24,7 +24,7 @@ namespace D13_CrossLanguageIntegration_Csharp_Python_
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.InitialDirectory = "%USERPROFILE%";
             openFileDialog.Filter = "python files (*.py)|*.py|All files (*.*)|*.*";
             openFileDialog.FilterIndex = 0;
             openFileDialog.RestoreDirectory = true;
