@@ -60,6 +60,7 @@
             this.loadPythonScriptBTN.TabIndex = 2;
             this.loadPythonScriptBTN.Text = "Load Python Script";
             this.loadPythonScriptBTN.UseVisualStyleBackColor = true;
+            this.loadPythonScriptBTN.Click += new System.EventHandler(this.loadPythonScriptBTN_Click);
             // 
             // runPythonScriptBTN
             // 
