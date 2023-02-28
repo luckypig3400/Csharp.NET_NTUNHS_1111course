@@ -71,6 +71,7 @@
             this.runPythonScriptBTN.TabIndex = 3;
             this.runPythonScriptBTN.Text = "Run Script";
             this.runPythonScriptBTN.UseVisualStyleBackColor = true;
+            this.runPythonScriptBTN.Click += new System.EventHandler(this.runPythonScriptBTN_Click);
             // 
             // stopPythonScriptBTN
             // 
@@ -81,6 +82,7 @@
             this.stopPythonScriptBTN.TabIndex = 4;
             this.stopPythonScriptBTN.Text = "Stop Script";
             this.stopPythonScriptBTN.UseVisualStyleBackColor = true;
+            this.stopPythonScriptBTN.Click += new System.EventHandler(this.stopPythonScriptBTN_Click);
             // 
             // Form1
             // 
