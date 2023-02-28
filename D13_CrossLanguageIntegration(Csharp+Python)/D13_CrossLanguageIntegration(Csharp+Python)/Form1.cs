@@ -113,6 +113,22 @@ namespace D13_CrossLanguageIntegration_Csharp_Python_
             richTextBox2.Text += i_input;
         }
 
+        private void loadPythonScript2BTN_Click(object sender, EventArgs e)
+        {
+            // TODO: multiple process
+            // https://docs.google.com/document/d/1YlksMb0502_iXMmIcd3k3OtrptR4e274/edit#heading=h.a3cgn1bb22av
+        }
+
+        private void runPythonScript2BTN_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stopPythonScript2BTN_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void OutputHandler_Err(object sendingProcess, System.Diagnostics.DataReceivedEventArgs outLine)
         {
             if (outLine.Data != null)
