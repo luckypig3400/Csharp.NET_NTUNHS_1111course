@@ -33,8 +33,8 @@
             this.loadPythonScriptBTN = new System.Windows.Forms.Button();
             this.runPythonScriptBTN = new System.Windows.Forms.Button();
             this.stopPythonScriptBTN = new System.Windows.Forms.Button();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.stopPythonScript2BTN = new System.Windows.Forms.Button();
             this.runPythonScript2BTN = new System.Windows.Forms.Button();
             this.loadPythonScript2BTN = new System.Windows.Forms.Button();
@@ -89,21 +89,21 @@
             this.stopPythonScriptBTN.UseVisualStyleBackColor = true;
             this.stopPythonScriptBTN.Click += new System.EventHandler(this.stopPythonScriptBTN_Click);
             // 
-            // richTextBox3
-            // 
-            this.richTextBox3.Location = new System.Drawing.Point(652, 215);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(600, 454);
-            this.richTextBox3.TabIndex = 5;
-            this.richTextBox3.Text = "";
-            // 
             // richTextBox4
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(652, 12);
+            this.richTextBox4.Location = new System.Drawing.Point(652, 215);
             this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(600, 88);
-            this.richTextBox4.TabIndex = 6;
+            this.richTextBox4.Size = new System.Drawing.Size(600, 454);
+            this.richTextBox4.TabIndex = 5;
             this.richTextBox4.Text = "";
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Location = new System.Drawing.Point(652, 12);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(600, 88);
+            this.richTextBox3.TabIndex = 6;
+            this.richTextBox3.Text = "";
             // 
             // stopPythonScript2BTN
             // 
@@ -146,8 +146,8 @@
             this.Controls.Add(this.loadPythonScript2BTN);
             this.Controls.Add(this.stopPythonScript2BTN);
             this.Controls.Add(this.runPythonScript2BTN);
-            this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.richTextBox3);
+            this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.stopPythonScriptBTN);
             this.Controls.Add(this.runPythonScriptBTN);
             this.Controls.Add(this.loadPythonScriptBTN);
@@ -167,8 +167,8 @@
         private System.Windows.Forms.Button loadPythonScriptBTN;
         private System.Windows.Forms.Button runPythonScriptBTN;
         private System.Windows.Forms.Button stopPythonScriptBTN;
-        private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.Button stopPythonScript2BTN;
         private System.Windows.Forms.Button runPythonScript2BTN;
         private System.Windows.Forms.Button loadPythonScript2BTN;

@@ -16,6 +16,8 @@ namespace D13_CrossLanguageIntegration_Csharp_Python_
         System.Diagnostics.Process p1, p2;
         string script_path_1;
         string script_args_1;
+        string script_path_2;
+        string script_args_2;
 
         public Form1()
         {
@@ -65,6 +67,12 @@ namespace D13_CrossLanguageIntegration_Csharp_Python_
             RunPythonScript(script_path_1, script_args_1);
         }
 
+        private void threadmethod2()
+        {
+
+            RunPythonScript2(script_path_2, script_args_2);
+        }
+
         public void RunPythonScript(string script_path, string script_args)
         {
             p1 = new System.Diagnostics.Process();
@@ -94,6 +102,35 @@ namespace D13_CrossLanguageIntegration_Csharp_Python_
             p1.WaitForExit();
         }
 
+        public void RunPythonScript2(string script_path, string script_args)
+        {
+
+            p2 = new System.Diagnostics.Process();
+
+            //沒有配環境變數的話，需要指定python.exe的絕對路徑
+            p2.StartInfo.FileName = "python.exe";
+            string sArguments = script_path + " " + script_args;
+
+            sArguments += " ";
+
+            p2.StartInfo.Arguments = sArguments;
+            p2.StartInfo.UseShellExecute = false;
+            p2.StartInfo.RedirectStandardOutput = true;
+            p2.StartInfo.RedirectStandardInput = true;
+            p2.StartInfo.RedirectStandardError = true;
+            p2.StartInfo.CreateNoWindow = true;
+
+            p2.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(OutputHandler2);
+
+            p2.Start();
+
+            // Asynchronously read the standard output of the spawned process.
+            // This raises OutputDataReceived events for each line of output.
+            p2.BeginOutputReadLine();
+
+            p2.WaitForExit();
+        }
+
         private void OutputHandler(object sendingProcess, System.Diagnostics.DataReceivedEventArgs outLine)
         {
             if (outLine.Data != null)
@@ -115,18 +152,39 @@ namespace D13_CrossLanguageIntegration_Csharp_Python_
 
         private void loadPythonScript2BTN_Click(object sender, EventArgs e)
         {
-            // TODO: multiple process
-            // https://docs.google.com/document/d/1YlksMb0502_iXMmIcd3k3OtrptR4e274/edit#heading=h.a3cgn1bb22av
+            var filePath = string.Empty;
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "python files (*.py)|*.py|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 0;
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Get the path of specified file
+                filePath = openFileDialog.FileName;
+            }
+            richTextBox3.Text = filePath;
         }
 
         private void runPythonScript2BTN_Click(object sender, EventArgs e)
         {
-
+            script_path_2 = @richTextBox3.Text;
+            script_args_2 = " this is argc ";
+            richTextBox4.Text = "";
+            thread2 = new System.Threading.Thread(threadmethod2);
+            thread2.Start();
         }
 
         private void stopPythonScript2BTN_Click(object sender, EventArgs e)
         {
-
+            if (!p2.HasExited)
+            {
+                p2.Kill();
+                thread2.Abort();
+            }
         }
 
         private void OutputHandler_Err(object sendingProcess, System.Diagnostics.DataReceivedEventArgs outLine)
@@ -141,9 +199,24 @@ namespace D13_CrossLanguageIntegration_Csharp_Python_
             }
         }
 
+        private void OutputHandler2(object sendingProcess, System.Diagnostics.DataReceivedEventArgs outLine)
+        {
+            if (outLine.Data != null)
+            {
+                BeginInvoke(new MethodInvoker(() => {
+                    this.ShowLog2(outLine.Data);
+                }));
+            }
+        }
+
         private void ShowLog_Err(string i_input)
         {
             richTextBox1.Text += i_input + "\n";
+        }
+
+        private void ShowLog2(string i_input)
+        {
+            richTextBox4.Text += i_input;
         }
 
     }
